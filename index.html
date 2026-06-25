@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex A | Full Stack Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="glow-circle glow-1"></div>
+    <div class="glow-circle glow-2"></div>
+    <div class="glow-circle glow-3"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Alex <span>A</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="#" class="icon-link"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon-link"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="btn btn-outline nav-btn"><i class="fa-solid fa-download"></i> Resume</a>
+                <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <ul class="mobile-links">
+            <!-- populated by JS -->
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content reveal">
+                <h3 class="hero-greeting">Hello, I'm</h3>
+                <h1 class="hero-name">Alex <span>A</span></h1>
+                <h2 class="subtitle">Full Stack Developer</h2>
+                <div class="typewriter">
+                    I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                </div>
+                <p class="intro">
+                    Computer Science undergraduate passionate about developing scalable full-stack applications using Java, Spring Boot, REST APIs, HTML, CSS, JavaScript, React, Next.js, and AI-powered solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+                    <a href="#" class="btn btn-outline mobile-hide"><i class="fa-solid fa-download"></i> Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-image reveal reveal-right">
+                <div class="img-wrapper">
+                    <img src="assets/hero-illustration.png" alt="Developer Illustration">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about">
+            <h2 class="section-title reveal">About <span>Me</span></h2>
+            <div class="about-container">
+                <div class="about-text reveal reveal-left">
+                    <p>I am Alex A, a Bachelor of Computer Science and Engineering student at Dr. N.G.P. Institute of Technology, Coimbatore.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <strong>Expected Graduation:</strong>
+                                <span>May 2027</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-star"></i>
+                            <div>
+                                <strong>CGPA:</strong>
+                                <span>8.17</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>I enjoy building scalable web applications using Java, Spring Boot, REST APIs, and modern frontend technologies. I am passionate about software engineering, backend development, and AI-powered applications.</p>
+                </div>
+                <div class="about-stats reveal reveal-right">
+                    <div class="stat-card">
+                        <h3>8.17</h3>
+                        <p>CGPA</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>2</h3>
+                        <p>Hackathon Wins</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>2×</h3>
+                        <p>National Finalist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education">
+            <h2 class="section-title reveal">Education</h2>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <h3>Dr. N.G.P. Institute of Technology</h3>
+                        <h4>Bachelor of Computer Science and Engineering</h4>
+                        <div class="timeline-meta">
+                            <p class="date"><i class="fa-regular fa-calendar"></i> August 2023 – May 2027</p>
+                            <p class="cgpa badge"><i class="fa-solid fa-chart-line"></i> CGPA: 8.17</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <h2 class="section-title reveal">Technical <span>Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span><i class="fa-brands fa-java"></i> Java</span>
+                        <span><i class="fa-brands fa-python"></i> Python</span>
+                        <span><i class="fa-solid fa-database"></i> SQL</span>
+                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span>TypeScript</span>
+                    </div>
+                </div>
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-desktop"></i> Frontend</h3>
+                    <div class="skill-tags">
+                        <span><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span><i class="fa-brands fa-react"></i> React.js</span>
+                        <span>Next.js</span>
+                        <span>Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-server"></i> Backend</h3>
+                    <div class="skill-tags">
+                        <span><i class="fa-solid fa-leaf"></i> Spring Boot</span>
+                        <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span>Flask</span>
+                        <span>FastAPI</span>
+                        <span>REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-database"></i> Database</h3>
+                    <div class="skill-tags">
+                        <span>MySQL</span>
+                        <span>MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span>Scikit-learn</span>
+                        <span>Pandas</span>
+                        <span>OpenCV</span>
+                        <span>NLP</span>
+                        <span>RAG</span>
+                        <span>Prompt Engineering</span>
+                        <span>Model Evaluation</span>
+                        <span>EDA</span>
+                        <span>Gemini API</span>
+                    </div>
+                </div>
+                <div class="skill-category card reveal">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
+                    <div class="skill-tags">
+                        <span><i class="fa-brands fa-git-alt"></i> Git</span>
+                        <span><i class="fa-brands fa-docker"></i> Docker</span>
+                        <span>VS Code</span>
+                        <span>Cursor</span>
+                        <span>Ollama</span>
+                        <span>n8n</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <h2 class="section-title reveal">Experience</h2>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card">
+                        <h3>Machine Learning Intern</h3>
+                        <h4>Right Angle Solutions</h4>
+                        <div class="timeline-meta">
+                            <p class="location"><i class="fa-solid fa-location-dot"></i> Koduvai, Tiruppur</p>
+                            <p class="date"><i class="fa-regular fa-calendar"></i> June 2025</p>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Built a Heart Disease Prediction System using Logistic Regression.</li>
+                            <li>Improved model accuracy from 86% to 93%.</li>
+                            <li>Performed Exploratory Data Analysis.</li>
+                            <li>Optimized feature selection.</li>
+                            <li>Developed and deployed a Flask web application for real-time prediction.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card card reveal">
+                    <div class="project-badge"><i class="fa-solid fa-trophy"></i> Winner – Best Social Impact Project</div>
+                    <div class="project-content">
+                        <h3>EduQuity</h3>
+                        <p class="project-desc">Built a full-stack educational platform with role-based dashboards. Integrated Gemini AI tutoring assistant. Developed REST APIs for internships, scholarships, analytics, and task management. Reduced administrative work by 40%.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Tailwind CSS</span><span>Gemini AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="#" class="btn btn-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card card reveal">
+                    <div class="project-badge badge-alt"><i class="fa-brands fa-android"></i> APK Deployed</div>
+                    <div class="project-content">
+                        <h3>OncoDetect AI</h3>
+                        <p class="project-desc">Developed an Android application for early cancer risk prediction. Integrated trained prediction models. Generated and deployed a functional APK.</p>
+                        <div class="tech-stack">
+                            <span>Dart</span><span>Android Studio</span><span>Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card card reveal">
+                    <div class="project-badge badge-alt2"><i class="fa-solid fa-star"></i> National Hackathon Finalist</div>
+                    <div class="project-content">
+                        <h3>MailGuard AI</h3>
+                        <p class="project-desc">Developed an AI-powered phishing and spam email detection system. Implemented TF-IDF vectorization and explainable predictions. Built a Flask interface for real-time analysis.</p>
+                        <div class="tech-stack">
+                            <span>Python</span><span>Flask</span><span>Scikit-learn</span><span>Machine Learning</span><span>NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="two-col-section">
+            <!-- Certifications Section -->
+            <section id="certifications" class="certifications half-width">
+                <h2 class="section-title reveal">Certifications</h2>
+                <div class="cert-list reveal">
+                    <div class="cert-card card">
+                        <i class="fa-solid fa-certificate cert-icon"></i>
+                        <div class="cert-info">
+                            <h3>Introduction to Internet of Things</h3>
+                            <p>NPTEL</p>
+                            <span class="badge badge-silver">Elite + Silver</span>
+                        </div>
+                    </div>
+                    <div class="cert-card card">
+                        <i class="fa-solid fa-cloud cert-icon"></i>
+                        <div class="cert-info">
+                            <h3>Cloud Computing</h3>
+                            <p>NPTEL</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section id="achievements" class="achievements half-width">
+                <h2 class="section-title reveal">Achievements</h2>
+                <div class="achieve-list reveal">
+                    <div class="achieve-item card">
+                        <i class="fa-solid fa-trophy achieve-icon win"></i>
+                        <div>
+                            <p><strong>Winner</strong></p>
+                            <p class="text-sm">Hackathon, United Institute of Technology</p>
+                        </div>
+                    </div>
+                    <div class="achieve-item card">
+                        <i class="fa-solid fa-medal achieve-icon win"></i>
+                        <div>
+                            <p><strong>Winner</strong></p>
+                            <p class="text-sm">Prompt Scapes, KPR Institute of Technology</p>
+                        </div>
+                    </div>
+                    <div class="achieve-item card">
+                        <i class="fa-solid fa-award achieve-icon runner"></i>
+                        <div>
+                            <p><strong>Runner-Up</strong></p>
+                            <p class="text-sm">Project Presentation</p>
+                        </div>
+                    </div>
+                    <div class="achieve-item card">
+                        <i class="fa-solid fa-star achieve-icon finalist"></i>
+                        <div>
+                            <p><strong>Top 10 Finalist (2×)</strong></p>
+                            <p class="text-sm">among 250+ teams</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Leadership Section -->
+        <section id="leadership" class="leadership">
+            <h2 class="section-title reveal">Leadership <span>&</span> Engagement</h2>
+            <div class="leadership-grid">
+                <div class="lead-card card reveal">
+                    <i class="fa-solid fa-users lead-icon"></i>
+                    <h3>Head (Chairman)</h3>
+                    <p>Hackathon Club</p>
+                </div>
+                <div class="lead-card card reveal">
+                    <i class="fa-solid fa-list-check lead-icon"></i>
+                    <h3>Project Lead</h3>
+                    <p>Led EduQuity, AI Resume Enhancer, and HeartSense.</p>
+                </div>
+                <div class="lead-card card reveal">
+                    <i class="fa-solid fa-robot lead-icon"></i>
+                    <h3>Campus Collaboration</h3>
+                    <h4>Ottonomy IO (Robotics MNC)</h4>
+                    <p>Collaborated on user research and robotics market surveys.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info reveal reveal-left">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to me for any opportunities or collaborations. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <span>+91 XXXXX XXXXX</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <span>alex.a@example.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container card reveal reveal-right">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Hello, I'd like to talk about..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" style="width: 100%;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Alex A</h3>
+            <p class="footer-subtitle">Full Stack Developer</p>
+            <p class="footer-quote">"Building scalable software and AI-powered solutions."</p>
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Alex A. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
