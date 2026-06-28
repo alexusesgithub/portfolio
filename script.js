@@ -1,126 +1,180 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-    // Mobile Navigation Toggle
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const closeMenu = document.querySelector(".close-menu");
-    const navLinks = document.querySelector(".nav-links").innerHTML;
-    const mobileLinks = document.querySelector(".mobile-links");
+/**
+ * script.js — Alex A Portfolio V2
+ * Lean vanilla JS: nav, mobile menu, IntersectionObserver reveal,
+ * active nav highlighting, mobile drawer, keyboard traps.
+ */
 
-    mobileLinks.innerHTML = navLinks;
+(function () {
+  'use strict';
 
-    menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.add("active");
-    });
+  /* ─── Util ─────────────────────────────────────────────────────────── */
+  const qs  = (s, ctx = document) => ctx.querySelector(s);
+  const qsa = (s, ctx = document) => [...ctx.querySelectorAll(s)];
 
-    closeMenu.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-    });
+  /* ─── Navigation: scroll-based class & active link ──────────────────── */
+  const header   = qs('.site-header');
+  const navLinks = qsa('.nav-link');
+  const sections = qsa('section[id], div[id]');
 
-    mobileLinks.addEventListener("click", (e) => {
-        if (e.target.tagName === 'A') {
-            mobileMenu.classList.remove("active");
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    window.requestAnimationFrame(() => {
+      // Sticky header bg
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Active nav link highlight
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top <= 80) current = sec.id;
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
         }
+      });
+
+      ticking = false;
     });
+    ticking = true;
+  }
 
-    // Sticky Navigation
-    const navbar = document.querySelector(".navbar");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once on load
 
-    // Typing Animation
-    const textArray = ["Java Developer", "Spring Boot Developer", "Full Stack Developer", "AI Enthusiast"];
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newTextDelay = 2000; // Delay between current and next text
-    let textArrayIndex = 0;
-    let charIndex = 0;
+  /* ─── Smooth Scroll for all anchor links ─────────────────────────────── */
+  document.addEventListener('click', e => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
 
-    const typedTextSpan = document.querySelector(".typed-text");
-    const cursorSpan = document.querySelector(".cursor");
+    const id     = anchor.getAttribute('href');
+    const target = qs(id);
+    if (!target) return;
 
-    function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
-            if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, typingDelay);
-        } else {
-            cursorSpan.classList.remove("typing");
-            setTimeout(erase, newTextDelay);
-        }
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ─── Mobile Menu ────────────────────────────────────────────────────── */
+  const openBtn  = qs('.mobile-menu-btn');
+  const closeBtn = qs('.mobile-nav-close');
+  const mobileNav     = qs('#mobile-nav');
+  const mobileOverlay = qs('.mobile-nav-overlay');
+  const mobileLinks   = qsa('.mobile-nav-link');
+  let lastFocused = null;
+
+  function openMobileNav() {
+    mobileNav.classList.add('open');
+    mobileOverlay.classList.add('open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    openBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    lastFocused = document.activeElement;
+    // Focus close button
+    setTimeout(() => closeBtn.focus(), 50);
+    trapFocus(mobileNav);
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    openBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  openBtn.addEventListener('click', openMobileNav);
+  closeBtn.addEventListener('click', closeMobileNav);
+  mobileOverlay.addEventListener('click', closeMobileNav);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  // Keyboard: close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+      closeMobileNav();
     }
+  });
 
-    function erase() {
-        if (charIndex > 0) {
-            if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-            charIndex--;
-            setTimeout(erase, erasingDelay);
-        } else {
-            cursorSpan.classList.remove("typing");
-            textArrayIndex++;
-            if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-            setTimeout(type, typingDelay + 1100);
+  // Focus trap
+  function trapFocus(modal) {
+    const focusable = qsa(
+      'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])',
+      modal
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+
+    modal.addEventListener('keydown', function handler(e) {
+      if (e.key !== 'Tab') return;
+      if (!modal.classList.contains('open')) {
+        modal.removeEventListener('keydown', handler);
+        return;
+      }
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
         }
-    }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
 
-    if(textArray.length && typedTextSpan) setTimeout(type, newTextDelay + 250);
+  /* ─── Scroll Reveal (IntersectionObserver) ───────────────────────────── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Scroll Reveal Animation
-    const reveals = document.querySelectorAll(".reveal");
+  const revealElements = qsa('.reveal');
 
-    function reveal() {
-        var windowHeight = window.innerHeight;
-        var elementVisible = 100;
-        
-        reveals.forEach((revealEl) => {
-            var elementTop = revealEl.getBoundingClientRect().top;
-            if (elementTop < windowHeight - elementVisible) {
-                revealEl.classList.add("active");
-            }
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
         });
-    }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
 
-    window.addEventListener("scroll", reveal);
-    reveal(); // Trigger on load
-
-    // Form Submission (Prevent Default for demo)
-    const form = document.querySelector(".contact-form");
-    if(form) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const btn = form.querySelector(".btn-submit");
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Sent Successfully <i class="fa-solid fa-check"></i>';
-            btn.style.background = "#10B981";
-            btn.style.color = "#fff";
-            form.reset();
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = "";
-                btn.style.color = "";
-            }, 3000);
-        });
-    }
-
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) {
-                const navHeight = document.querySelector(".navbar").offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - navHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    revealElements.forEach((el, i) => {
+      // Stagger siblings within same parent
+      el.style.transitionDelay = `${i * 40}ms`;
+      observer.observe(el);
     });
-});
+  } else {
+    // Immediately reveal for accessibility / no-motion
+    revealElements.forEach(el => el.classList.add('in-view'));
+  }
+
+  /* ─── Stagger reveal delay reset per section ─────────────────────────── */
+  // Reset stagger per section so it doesn't accumulate globally
+  qsa('section').forEach(section => {
+    const els = qsa('.reveal', section);
+    els.forEach((el, i) => {
+      el.style.transitionDelay = `${i * 60}ms`;
+    });
+  });
+
+})();

@@ -2,469 +2,637 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex A | Full Stack Developer</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex A — Full Stack Developer & CS Engineering Student specializing in scalable web applications and AI-powered solutions.">
+  <meta property="og:title" content="Alex A | Full Stack Developer">
+  <meta property="og:description" content="CS Engineering student building full-stack apps and ML solutions that ship.">
+  <title>Alex A — Full Stack Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="bg-pattern"></div>
-    <div class="glow-circle glow-1"></div>
-    <div class="glow-circle glow-2"></div>
-    <div class="glow-circle glow-3"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="https://github.com" class="icon-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" class="icon-link" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline nav-btn" target="_blank"><i
-                        class="fa-solid fa-download"></i> Resume</a>
-                <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-            </div>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo" aria-label="Alex A - Home">
+          <span class="logo-text">Alex</span><span class="logo-dot">.</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://github.com/alexusesgithub" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="nav-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="assets/Alex_A_Resume.pdf" class="btn btn-sm" target="_blank" rel="noopener noreferrer">
+            Resume <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
         </div>
+      </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu">
-        <div class="close-menu"><i class="fa-solid fa-xmark"></i></div>
-        <ul class="mobile-links">
-            <!-- populated by JS -->
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <button class="mobile-nav-close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="mobile-nav-links" role="list">
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+          <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+          <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
+        <div class="mobile-nav-footer">
+          <a href="assets/Alex_A_Resume.pdf" class="btn btn-full" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        </div>
+      </div>
     </div>
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content reveal">
-                <h3 class="hero-greeting">Hello, I'm</h3>
-                <h1 class="hero-name">Alex <span>A</span></h1>
-                <h2 class="subtitle">Full Stack Developer</h2>
-                <div class="typewriter">
-                    I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-                </div>
-                <p class="intro">
-                    Computer Science undergraduate passionate about developing scalable full-stack applications using
-                    Java, Spring Boot, REST APIs, HTML, CSS, JavaScript, React, Next.js, and AI-powered solutions.
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+    <section id="home" class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <div class="hero-content">
+
+          <!-- 1. Status kicker -->
+          <div class="hero-kicker fade-up" style="--delay: 0ms">
+            <span class="status-dot" aria-hidden="true"></span>
+            Available for Full-Time Opportunities
+          </div>
+
+          <!-- 2. Name — the dominant brand element, largest text on the page -->
+          <h1 class="hero-name fade-up" style="--delay: 60ms">
+            Alex <span class="hero-name-accent">A</span>
+          </h1>
+
+          <!-- 3. Role — directly under name, immediately readable -->
+          <p class="hero-role fade-up" style="--delay: 120ms">Full Stack Software Engineer</p>
+
+          <!-- 4. One-line value proposition -->
+          <p class="hero-body fade-up" style="--delay: 180ms">
+            Building scalable web applications, Spring Boot APIs, AI-powered tools, and production-ready backend systems with Java, React, Next.js, and Python.
+          </p>
+
+          <!-- 5. Primary CTAs -->
+          <div class="hero-ctas fade-up" style="--delay: 240ms">
+            <a href="#projects" class="btn btn-primary">
+              View Projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="assets/Alex_A_Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+              Resume <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- 6. Tech tags -->
+          <div class="hero-tags fade-up" style="--delay: 300ms" aria-label="Core technologies">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">AI &amp; ML</span>
+          </div>
+
+          <!-- 7. Stats strip — supporting social proof -->
+          <div class="hero-stats fade-up" style="--delay: 360ms" aria-label="Quick stats">
+            <div class="hero-stat">
+              <span class="stat-number">8.17</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat">
+              <span class="stat-number">2×</span>
+              <span class="stat-label">Hackathon Winner</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Shipped Projects</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal card -->
+        <div class="hero-terminal fade-left" style="--delay: 200ms" aria-label="Code snippet preview" role="img">
+          <div class="terminal-bar">
+            <span class="terminal-dot td-red" aria-hidden="true"></span>
+            <span class="terminal-dot td-yellow" aria-hidden="true"></span>
+            <span class="terminal-dot td-green" aria-hidden="true"></span>
+            <span class="terminal-title">alex.profile.json</span>
+          </div>
+          <div class="terminal-body">
+            <pre class="terminal-code"><code><span class="tc-brace">{</span>
+  <span class="tc-key">"name"</span><span class="tc-colon">:</span> <span class="tc-str">"Alex A"</span><span class="tc-comma">,</span>
+  <span class="tc-key">"role"</span><span class="tc-colon">:</span> <span class="tc-str">"Full Stack Developer"</span><span class="tc-comma">,</span>
+  <span class="tc-key">"focus"</span><span class="tc-colon">:</span> <span class="tc-arr">[</span>
+    <span class="tc-str">"Web Applications"</span><span class="tc-comma">,</span>
+    <span class="tc-str">"AI / ML Systems"</span><span class="tc-comma">,</span>
+    <span class="tc-str">"REST APIs"</span>
+  <span class="tc-arr">]</span><span class="tc-comma">,</span>
+  <span class="tc-key">"stack"</span><span class="tc-colon">:</span> <span class="tc-arr">[</span>
+    <span class="tc-str">"Java"</span><span class="tc-comma">,</span> <span class="tc-str">"Spring Boot"</span><span class="tc-comma">,</span>
+    <span class="tc-str">"React"</span><span class="tc-comma">,</span> <span class="tc-str">"Next.js"</span><span class="tc-comma">,</span>
+    <span class="tc-str">"Python"</span><span class="tc-comma">,</span> <span class="tc-str">"Flask"</span>
+  <span class="tc-arr">]</span><span class="tc-comma">,</span>
+  <span class="tc-key">"openTo"</span><span class="tc-colon">:</span> <span class="tc-str">"Internships &amp; roles"</span>
+<span class="tc-brace">}</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+    <section id="about" class="section about-section" aria-labelledby="about-heading">
+      <div class="section-inner">
+        <div class="section-label reveal">About</div>
+        <h2 class="section-heading reveal" id="about-heading">
+          Turning ideas into<br>production software.
+        </h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I'm a Computer Science & Engineering student at <strong>Dr. N.G.P. Institute of Technology, Coimbatore</strong> (Aug 2023 – May 2027, CGPA 8.17). My work sits at the intersection of backend engineering, modern frontend development, and applied AI.
+            </p>
+            <p>
+              I don't build toy projects. Every project I ship has a clear problem, a real solution, and a measurable outcome — from a cancer risk prediction Android app to an educational platform that reduced admin workload by ~40%.
+            </p>
+            <p>
+              I'm driven by engineering challenges that require thinking across the stack — API design, model integration, deployment, and user experience.
+            </p>
+            <div class="about-links">
+              <a href="https://github.com/alexusesgithub" class="inline-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> alexusesgithub
+              </a>
+              <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="inline-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> Connect
+              </a>
+            </div>
+          </div>
+          <div class="about-cards reveal">
+            <div class="info-card">
+              <div class="info-card-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="info-card-body">
+                <span class="info-card-label">Degree</span>
+                <span class="info-card-value">B.E. Computer Science & Engineering</span>
+                <span class="info-card-sub">Dr. N.G.P. Institute of Technology · 2023–2027</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="info-card-body">
+                <span class="info-card-label">Academic Performance</span>
+                <span class="info-card-value info-card-big">8.17 <small>/ 10.0 CGPA</small></span>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-card-body">
+                <span class="info-card-label">Location</span>
+                <span class="info-card-value">Coimbatore, Tamil Nadu, India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ PROJECTS ═══════════════════════════════════ -->
+    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+      <div class="section-inner">
+        <div class="section-label reveal">Work</div>
+        <h2 class="section-heading reveal" id="projects-heading">Featured Projects</h2>
+
+        <!-- Project 1: EduQuity — featured/large -->
+        <article class="project-card project-featured reveal" aria-label="EduQuity project">
+          <div class="project-card-body">
+            <header class="project-card-header">
+              <div class="project-badges">
+                <span class="badge badge-gold">
+                  <i class="fa-solid fa-trophy" aria-hidden="true"></i> Winner — Best Social Impact
+                </span>
+              </div>
+              <div class="project-meta-links">
+                <a href="https://github.com/alexusesgithub/ai-education-equity-system" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="EduQuity GitHub repository">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                </a>
+              </div>
+            </header>
+
+            <div class="project-content-split">
+              <div class="project-info">
+                <h3 class="project-title">EduQuity</h3>
+                <p class="project-subtitle">AI-powered educational equity platform</p>
+                <p class="project-desc">
+                  Full-stack platform with role-based dashboards for students, teachers, and administrators. Integrated a Gemini AI tutoring assistant for real-time doubt resolution. Built REST APIs covering internships, scholarships, analytics, and task management.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View
-                        Projects</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
-                    <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline mobile-hide" target="_blank"><i
-                            class="fa-solid fa-download"></i> Download Resume</a>
+                <div class="project-tech-list" aria-label="Technologies used">
+                  <span class="tech-pill">Next.js</span>
+                  <span class="tech-pill">React</span>
+                  <span class="tech-pill">TypeScript</span>
+                  <span class="tech-pill">Node.js</span>
+                  <span class="tech-pill">Tailwind CSS</span>
+                  <span class="tech-pill">Gemini AI</span>
                 </div>
+              </div>
+              <div class="project-metric-block" aria-label="Key impact metric">
+                <div class="metric-display">
+                  <span class="metric-number">~40%</span>
+                  <span class="metric-desc">Reduction in administrative effort</span>
+                </div>
+                <div class="metric-callouts">
+                  <div class="callout-item">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i>
+                    Role-based access for 3 user types
+                  </div>
+                  <div class="callout-item">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i>
+                    Gemini AI tutoring assistant
+                  </div>
+                  <div class="callout-item">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i>
+                    Production REST API suite
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="hero-image reveal reveal-right">
-                <div class="img-wrapper">
-                    <img src="assets/hero-illustration.png" alt="Developer Illustration">
-                </div>
+          </div>
+        </article>
+
+        <!-- Projects 2 & 3 — side by side -->
+        <div class="project-grid-2col">
+          <!-- Project 2: OncoDetect AI -->
+          <article class="project-card reveal" aria-label="OncoDetect AI project">
+            <header class="project-card-header">
+              <span class="badge badge-blue">
+                <i class="fa-brands fa-android" aria-hidden="true"></i> APK Deployed
+              </span>
+              <a href="https://github.com/alexusesgithub/AI-Powered-Cancer-Prediction-Mobile-App-Early-Detection-System-" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="OncoDetect AI GitHub repository">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </header>
+            <h3 class="project-title">OncoDetect AI</h3>
+            <p class="project-subtitle">Early cancer risk prediction · Android</p>
+            <p class="project-desc">
+              Android application for early cancer risk prediction. Trained ML models integrated into a clean mobile interface for health parameter input. Deployed as a functional APK for real-world use.
+            </p>
+            <div class="project-pipeline" aria-label="Technical pipeline">
+              <span class="pipeline-step">Input params</span>
+              <i class="fa-solid fa-arrow-right pipeline-arrow" aria-hidden="true"></i>
+              <span class="pipeline-step">ML model</span>
+              <i class="fa-solid fa-arrow-right pipeline-arrow" aria-hidden="true"></i>
+              <span class="pipeline-step">Risk score</span>
             </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="about">
-            <h2 class="section-title reveal">About <span>Me</span></h2>
-            <div class="about-container">
-                <div class="about-text reveal reveal-left">
-                    <p>I am Alex A, a Bachelor of Computer Science and Engineering student at Dr. N.G.P. Institute of
-                        Technology, Coimbatore.</p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <div>
-                                <strong>Expected Graduation:</strong>
-                                <span>May 2027</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-star"></i>
-                            <div>
-                                <strong>CGPA:</strong>
-                                <span>8.17</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>I enjoy building scalable web applications using Java, Spring Boot, REST APIs, and modern
-                        frontend technologies. I am passionate about software engineering, backend development, and
-                        AI-powered applications.</p>
-                </div>
-                <div class="about-stats reveal reveal-right">
-                    <div class="stat-card">
-                        <h3>8.17</h3>
-                        <p>CGPA</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>3+</h3>
-                        <p>Projects</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>2</h3>
-                        <p>Hackathon Wins</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>2×</h3>
-                        <p>National Finalist</p>
-                    </div>
-                </div>
+            <div class="project-tech-list" aria-label="Technologies used">
+              <span class="tech-pill">Dart</span>
+              <span class="tech-pill">Android Studio</span>
+              <span class="tech-pill">Machine Learning</span>
             </div>
-        </section>
+          </article>
 
-        <!-- Education Section -->
-        <section id="education" class="education">
-            <h2 class="section-title reveal">Education</h2>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card">
-                        <h3>Dr. N.G.P. Institute of Technology</h3>
-                        <h4>Bachelor of Computer Science and Engineering</h4>
-                        <div class="timeline-meta">
-                            <p class="date"><i class="fa-regular fa-calendar"></i> August 2023 – May 2027</p>
-                            <p class="cgpa badge"><i class="fa-solid fa-chart-line"></i> CGPA: 8.17</p>
-                        </div>
-                    </div>
-                </div>
+          <!-- Project 3: MailGuard AI -->
+          <article class="project-card reveal" aria-label="MailGuard AI project">
+            <header class="project-card-header">
+              <span class="badge badge-purple">
+                <i class="fa-solid fa-star" aria-hidden="true"></i> National Hackathon Finalist
+              </span>
+              <a href="https://github.com/alexusesgithub/email-spam-analyser" class="project-link-btn" target="_blank" rel="noopener noreferrer" aria-label="MailGuard AI GitHub repository">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </header>
+            <h3 class="project-title">MailGuard AI</h3>
+            <p class="project-subtitle">Phishing & spam detection · NLP</p>
+            <p class="project-desc">
+              Email phishing and spam classifier with explainable predictions. Features keyword-based threat indicators and a Flask interface for real-time analysis.
+            </p>
+            <div class="project-pipeline" aria-label="Technical pipeline">
+              <span class="pipeline-step">Preprocess</span>
+              <i class="fa-solid fa-arrow-right pipeline-arrow" aria-hidden="true"></i>
+              <span class="pipeline-step">TF-IDF</span>
+              <i class="fa-solid fa-arrow-right pipeline-arrow" aria-hidden="true"></i>
+              <span class="pipeline-step">Classify</span>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2 class="section-title reveal">Technical <span>Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-java"></i> Java</span>
-                        <span><i class="fa-brands fa-python"></i> Python</span>
-                        <span><i class="fa-solid fa-database"></i> SQL</span>
-                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                        <span>TypeScript</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-desktop"></i> Frontend</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-html5"></i> HTML5</span>
-                        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                        <span><i class="fa-brands fa-react"></i> React.js</span>
-                        <span>Next.js</span>
-                        <span>Tailwind CSS</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-server"></i> Backend</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-solid fa-leaf"></i> Spring Boot</span>
-                        <span><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span>Flask</span>
-                        <span>FastAPI</span>
-                        <span>REST APIs</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-database"></i> Database</h3>
-                    <div class="skill-tags">
-                        <span>MySQL</span>
-                        <span>MongoDB</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
-                    <div class="skill-tags">
-                        <span>Scikit-learn</span>
-                        <span>Pandas</span>
-                        <span>OpenCV</span>
-                        <span>NLP</span>
-                        <span>RAG</span>
-                        <span>Prompt Engineering</span>
-                        <span>Model Evaluation</span>
-                        <span>EDA</span>
-                        <span>Gemini API</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-git-alt"></i> Git</span>
-                        <span><i class="fa-brands fa-docker"></i> Docker</span>
-                        <span>VS Code</span>
-                        <span>Cursor</span>
-                        <span>Ollama</span>
-                        <span>n8n</span>
-                    </div>
-                </div>
+            <div class="project-tech-list" aria-label="Technologies used">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">NLP</span>
+              <span class="tech-pill">Scikit-learn</span>
+              <span class="tech-pill">Flask</span>
             </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience">
-            <h2 class="section-title reveal">Experience</h2>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card">
-                        <h3>Machine Learning Intern</h3>
-                        <h4>Right Angle Solutions</h4>
-                        <div class="timeline-meta">
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Koduvai, Tiruppur</p>
-                            <p class="date"><i class="fa-regular fa-calendar"></i> June 2025</p>
-                        </div>
-                        <ul class="responsibilities">
-                            <li>Built a Heart Disease Prediction System using Logistic Regression.</li>
-                            <li>Improved model accuracy from 86% to 93%.</li>
-                            <li>Performed Exploratory Data Analysis.</li>
-                            <li>Optimized feature selection.</li>
-                            <li>Developed and deployed a Flask web application for real-time prediction.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <h2 class="section-title reveal">Featured <span>Projects</span></h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge"><i class="fa-solid fa-trophy"></i> Winner – Best Social Impact Project
-                    </div>
-                    <div class="project-content">
-                        <h3>EduQuity</h3>
-                        <p class="project-desc">Built a full-stack educational platform with role-based dashboards.
-                            Integrated Gemini AI tutoring assistant. Developed REST APIs for internships, scholarships,
-                            analytics, and task management. Reduced administrative work by 40%.</p>
-                        <div class="tech-stack">
-                            <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Tailwind
-                                CSS</span><span>Gemini AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/ai-education-equity-system"
-                                class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge badge-alt"><i class="fa-brands fa-android"></i> APK Deployed</div>
-                    <div class="project-content">
-                        <h3>OncoDetect AI</h3>
-                        <p class="project-desc">Developed an Android application for early cancer risk prediction.
-                            Integrated trained prediction models. Generated and deployed a functional APK.</p>
-                        <div class="tech-stack">
-                            <span>Dart</span><span>Android Studio</span><span>Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/AI-Powered-Cancer-Prediction-Mobile-App-Early-Detection-System-"
-                                class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge badge-alt2"><i class="fa-solid fa-star"></i> National Hackathon Finalist
-                    </div>
-                    <div class="project-content">
-                        <h3>MailGuard AI</h3>
-                        <p class="project-desc">Developed an AI-powered phishing and spam email detection system.
-                            Implemented TF-IDF vectorization and explainable predictions. Built a Flask interface for
-                            real-time analysis.</p>
-                        <div class="tech-stack">
-                            <span>Python</span><span>Flask</span><span>Scikit-learn</span><span>Machine
-                                Learning</span><span>NLP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/email-spam-analyser" class="btn btn-outline"
-                                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="two-col-section">
-            <!-- Certifications Section -->
-            <section id="certifications" class="certifications half-width">
-                <h2 class="section-title reveal">Certifications</h2>
-                <div class="cert-list reveal">
-                    <div class="cert-card card">
-                        <i class="fa-solid fa-certificate cert-icon"></i>
-                        <div class="cert-info">
-                            <h3>Introduction to Internet of Things</h3>
-                            <p>NPTEL</p>
-                            <span class="badge badge-silver">Elite + Silver</span>
-                        </div>
-                    </div>
-                    <div class="cert-card card">
-                        <i class="fa-solid fa-cloud cert-icon"></i>
-                        <div class="cert-info">
-                            <h3>Cloud Computing</h3>
-                            <p>NPTEL</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Achievements Section -->
-            <section id="achievements" class="achievements half-width">
-                <h2 class="section-title reveal">Achievements</h2>
-                <div class="achieve-list reveal">
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-trophy achieve-icon win"></i>
-                        <div>
-                            <p><strong>Winner</strong></p>
-                            <p class="text-sm">Hackathon, United Institute of Technology</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-medal achieve-icon win"></i>
-                        <div>
-                            <p><strong>Winner</strong></p>
-                            <p class="text-sm">Prompt Scapes, KPR Institute of Technology</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-award achieve-icon runner"></i>
-                        <div>
-                            <p><strong>Runner-Up</strong></p>
-                            <p class="text-sm">Project Presentation</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-star achieve-icon finalist"></i>
-                        <div>
-                            <p><strong>Top 10 Finalist (2×)</strong></p>
-                            <p class="text-sm">among 250+ teams</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-star achieve-icon finalist"></i>
-                        <div>
-                            <p><strong>Top 50 Finalist</strong></p>
-                            <p class="text-sm">among 1500+ participants in National-Level Hackathon</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <!-- Leadership Section -->
-        <section id="leadership" class="leadership">
-            <h2 class="section-title reveal">Leadership <span>&</span> Engagement</h2>
-            <div class="leadership-grid">
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-users lead-icon"></i>
-                    <h3>Head (Chairman)</h3>
-                    <p>Hackathon Club</p>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Organized 5+ hackathons & technical events.</li>
-                        <li>Led student teams and coordinated industry sessions.</li>
-                        <li>Promoted innovation through campus-wide coding initiatives.</li>
-                    </ul>
-                </div>
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-list-check lead-icon"></i>
-                    <h3>Project Lead</h3>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Led 3 AI-powered full-stack projects.</li>
-                        <li>Managed planning, development & deployment.</li>
-                        <li>Coordinated frontend, backend & AI integration.</li>
-                    </ul>
-                </div>
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-robot lead-icon"></i>
-                    <h3>Campus Collaboration</h3>
-                    <h4>Ottonomy IO (Robotics MNC)</h4>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Collaborated on robotics user research.</li>
-                        <li>Conducted market surveys and analyzed insights.</li>
-                        <li>Contributed to product research initiatives.</li>
-                    </ul>
-                </div>
+    <!-- ═══════════════════════════════════ EXPERIENCE ═══════════════════════════════════ -->
+    <section id="experience" class="section experience-section" aria-labelledby="experience-heading">
+      <div class="section-inner">
+        <div class="section-label reveal">Experience</div>
+        <h2 class="section-heading reveal" id="experience-heading">Where I've worked</h2>
+
+        <div class="exp-card reveal">
+          <div class="exp-card-left">
+            <div class="exp-role-block">
+              <span class="exp-role">Machine Learning Intern</span>
+              <span class="exp-company">Right Angle Solutions</span>
+              <span class="exp-location">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Koduvai, Tiruppur
+              </span>
+              <span class="exp-date">
+                <i class="fa-regular fa-calendar" aria-hidden="true"></i> June 2025
+              </span>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
-            <div class="contact-container" style="display: block; max-width: 600px; margin: 0 auto;">
-                <div class="contact-info reveal reveal-left">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out to me for any opportunities or collaborations. I am always open to
-                        discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4>Phone</h4>
-                            <span><a href="tel:+917845206876" style="color: inherit; text-decoration: none;">+91
-                                    7845206876</a></span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <h4>Email</h4>
-                            <span><a href="mailto:alex.data.dev44@gmail.com"
-                                    style="color: inherit; text-decoration: none;">alex.data.dev44@gmail.com</a></span>
-                        </div>
-                    </div>
-                    <div class="contact-socials">
-                        <a href="https://github.com/alexusesgithub" class="social-btn" target="_blank"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="social-btn" target="_blank"><i
-                                class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-
+            <div class="exp-tech-list" aria-label="Technologies used">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Logistic Regression</span>
+              <span class="tech-pill">Scikit-learn</span>
+              <span class="tech-pill">Flask</span>
+              <span class="tech-pill">EDA</span>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <h3>Alex A</h3>
-            <p class="footer-subtitle">Full Stack Developer</p>
-            <p class="footer-quote">"Building scalable software and AI-powered solutions."</p>
-            <div class="footer-socials">
-                <a href="https://github.com/alexusesgithub" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:alex.data.dev44@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+          <div class="exp-card-right">
+            <div class="exp-highlight-metric" aria-label="Accuracy improvement metric">
+              <div class="exp-metric-from">
+                <span class="metric-pct">86%</span>
+                <span class="metric-lbl">Baseline accuracy</span>
+              </div>
+              <div class="exp-metric-arrow" aria-hidden="true">
+                <svg width="32" height="16" viewBox="0 0 32 16" fill="none" aria-hidden="true">
+                  <path d="M0 8H28M28 8L22 2M28 8L22 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="exp-metric-to">
+                <span class="metric-pct metric-improved">93%</span>
+                <span class="metric-lbl">Achieved accuracy</span>
+              </div>
             </div>
-            <p class="copyright">&copy; 2026 Alex A. All rights reserved.</p>
+            <ul class="exp-bullets" role="list">
+              <li>Built a heart disease prediction system using Logistic Regression.</li>
+              <li>Performed Exploratory Data Analysis and optimized feature selection to lift accuracy from <strong>86% → 93%</strong>.</li>
+              <li>Developed and deployed a Flask web application for real-time patient risk prediction.</li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- ═══════════════════════════════════ SKILLS ═══════════════════════════════════ -->
+    <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
+      <div class="section-inner">
+        <div class="section-label reveal">Capabilities</div>
+        <h2 class="section-heading reveal" id="skills-heading">Technical skills</h2>
+
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="skill-group-icon" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
+              Languages
+            </h3>
+            <div class="skill-pills" role="list">
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-java" aria-hidden="true"></i> Java</span>
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-python" aria-hidden="true"></i> Python</span>
+              <span role="listitem" class="skill-pill">SQL</span>
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</span>
+              <span role="listitem" class="skill-pill">TypeScript</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="skill-group-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></span>
+              AI / ML
+            </h3>
+            <div class="skill-pills" role="list">
+              <span role="listitem" class="skill-pill">Scikit-learn</span>
+              <span role="listitem" class="skill-pill">Pandas</span>
+              <span role="listitem" class="skill-pill">OpenCV</span>
+              <span role="listitem" class="skill-pill">NLP</span>
+              <span role="listitem" class="skill-pill">RAG</span>
+              <span role="listitem" class="skill-pill">Prompt Engineering</span>
+              <span role="listitem" class="skill-pill">Gemini API</span>
+              <span role="listitem" class="skill-pill">EDA</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="skill-group-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+              Frameworks
+            </h3>
+            <div class="skill-pills" role="list">
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-react" aria-hidden="true"></i> React.js</span>
+              <span role="listitem" class="skill-pill">Next.js</span>
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-node-js" aria-hidden="true"></i> Node.js</span>
+              <span role="listitem" class="skill-pill">Spring Boot</span>
+              <span role="listitem" class="skill-pill">Flask</span>
+              <span role="listitem" class="skill-pill">FastAPI</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="skill-group-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+              Tools & Web
+            </h3>
+            <div class="skill-pills" role="list">
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git</span>
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-docker" aria-hidden="true"></i> Docker</span>
+              <span role="listitem" class="skill-pill">REST APIs</span>
+              <span role="listitem" class="skill-pill"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML/CSS</span>
+              <span role="listitem" class="skill-pill">Tailwind CSS</span>
+              <span role="listitem" class="skill-pill">MySQL</span>
+              <span role="listitem" class="skill-pill">MongoDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ ACHIEVEMENTS & LEADERSHIP ═══════════════════════════════════ -->
+    <section id="achievements" class="section achievements-section" aria-labelledby="achievements-heading">
+      <div class="section-inner">
+        <div class="section-label reveal">Recognition & Leadership</div>
+        <h2 class="section-heading reveal" id="achievements-heading">Awards, certs &amp; roles</h2>
+
+        <div class="recognition-grid">
+          <!-- Achievements column -->
+          <div class="recognition-col reveal">
+            <h3 class="recognition-col-title">Achievements</h3>
+            <div class="achievement-list" role="list">
+              <div class="achievement-item" role="listitem">
+                <span class="achievement-icon achievement-gold" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span>
+                <div class="achievement-body">
+                  <strong>Winner</strong>
+                  <span>Hackathon — United Institute of Technology</span>
+                </div>
+              </div>
+              <div class="achievement-item" role="listitem">
+                <span class="achievement-icon achievement-gold" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span>
+                <div class="achievement-body">
+                  <strong>Winner</strong>
+                  <span>Prompt Scapes — KPR Institute of Technology</span>
+                </div>
+              </div>
+              <div class="achievement-item" role="listitem">
+                <span class="achievement-icon achievement-silver" aria-hidden="true"><i class="fa-solid fa-medal"></i></span>
+                <div class="achievement-body">
+                  <strong>Runner-Up</strong>
+                  <span>Project Presentation — KPR Institute of Technology</span>
+                </div>
+              </div>
+              <div class="achievement-item" role="listitem">
+                <span class="achievement-icon achievement-blue" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
+                <div class="achievement-body">
+                  <strong>Top 10 Finalist <span class="badge-inline">×2</span></strong>
+                  <span>Among 250+ teams in National-Level Hackathons</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="recognition-col-title" style="margin-top: 2rem;">Certifications</h3>
+            <div class="cert-list" role="list">
+              <div class="cert-item" role="listitem">
+                <div class="cert-issuer">NPTEL</div>
+                <div class="cert-body">
+                  <span class="cert-name">Introduction to Internet of Things</span>
+                  <span class="cert-badge">Elite + Silver</span>
+                </div>
+              </div>
+              <div class="cert-item" role="listitem">
+                <div class="cert-issuer">NPTEL</div>
+                <div class="cert-body">
+                  <span class="cert-name">Cloud Computing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leadership column -->
+          <div class="recognition-col reveal">
+            <h3 class="recognition-col-title">Leadership</h3>
+            <div class="leadership-list" role="list">
+              <div class="leadership-item" role="listitem">
+                <div class="leadership-icon" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
+                <div class="leadership-body">
+                  <strong class="leadership-role">Head (Chairman) — Hackathon Club</strong>
+                  <ul class="leadership-bullets">
+                    <li>Organized 5+ hackathons and technical events</li>
+                    <li>Led student teams and coordinated industry sessions</li>
+                    <li>Promoted innovation through campus-wide coding initiatives</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="leadership-item" role="listitem">
+                <div class="leadership-icon" aria-hidden="true"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="leadership-body">
+                  <strong class="leadership-role">Project Lead</strong>
+                  <ul class="leadership-bullets">
+                    <li>Led EduQuity, AI Resume Enhancer, and HeartSense end-to-end</li>
+                    <li>Managed planning, development, and deployment</li>
+                    <li>Coordinated frontend, backend, and AI integration</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="leadership-item" role="listitem">
+                <div class="leadership-icon" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
+                <div class="leadership-body">
+                  <strong class="leadership-role">Campus Collaboration — Ottonomy IO <span class="leadership-sub">(Robotics MNC)</span></strong>
+                  <ul class="leadership-bullets">
+                    <li>User research for autonomous robotics product development</li>
+                    <li>Conducted market surveys and analyzed consumer insights</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════════ -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+      <div class="section-inner contact-inner">
+        <div class="contact-content reveal">
+          <div class="section-label">Contact</div>
+          <h2 class="contact-heading" id="contact-heading">
+            Let's build<br>something great.
+          </h2>
+          <p class="contact-body">
+            I'm actively looking for internships and full-time roles in full-stack development and AI engineering. If you have an opportunity or just want to connect — reach out.
+          </p>
+          <a href="mailto:alex.data.dev44@gmail.com" class="btn btn-primary btn-lg contact-cta">
+            alex.data.dev44@gmail.com <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <div class="contact-socials">
+            <a href="https://github.com/alexusesgithub" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="assets/Alex_A_Resume.pdf" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Download Resume">
+              <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+              <span>Resume</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">Alex<span>.</span></span>
+        <span class="footer-tagline">Full Stack Developer · Coimbatore, India</span>
+      </div>
+      <p class="footer-copy">&copy; 2026 Alex A. Built with HTML, CSS &amp; JS.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
