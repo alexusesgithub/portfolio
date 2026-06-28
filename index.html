@@ -100,12 +100,20 @@
             Alex <span class="hero-name-accent">A</span>
           </h1>
 
-          <!-- 3. Role — directly under name, immediately readable -->
-          <p class="hero-role fade-up" style="--delay: 120ms">Full Stack Software Engineer</p>
+          <!-- 3. Role — fixed primary title, immediately under name -->
+          <p class="hero-role fade-up" style="--delay: 120ms">Software Engineer</p>
 
-          <!-- 4. One-line value proposition -->
-          <p class="hero-body fade-up" style="--delay: 180ms">
-            Building scalable web applications, Spring Boot APIs, AI-powered tools, and production-ready backend systems with Java, React, Next.js, and Python.
+          <!-- 4. Rotating specialization — dual-span ping-pong -->
+          <div class="hero-specialization fade-up" style="--delay: 160ms">
+            <div class="spec-stage" id="spec-stage" aria-live="polite" aria-atomic="true">
+              <span class="spec-span spec-on" id="spec-a">Full Stack Development</span>
+              <span class="spec-span spec-off spec-off-below" id="spec-b" aria-hidden="true">AI Engineering</span>
+            </div>
+          </div>
+
+          <!-- 5. Value proposition -->
+          <p class="hero-body fade-up" style="--delay: 210ms">
+            I build scalable web applications, intelligent AI-powered solutions, production-ready backend systems, and modern user experiences using Java, Spring Boot, React, Next.js, Python, and Machine Learning.
           </p>
 
           <!-- 5. Primary CTAs -->

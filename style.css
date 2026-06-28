@@ -555,13 +555,13 @@ strong { font-weight: 600; color: var(--c-text); }
   color: var(--c-accent);
 }
 
-/* Role — immediately under name */
+/* Role — immediately under name, tight coupling with spec line */
 .hero-role {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   font-weight: 500;
   color: var(--c-text-2);
   letter-spacing: -0.01em;
-  margin-bottom: var(--sp-3);
+  margin-bottom: 0.35em;
 }
 
 /* Keep headline classes in case referenced elsewhere */
@@ -592,6 +592,95 @@ strong { font-weight: 600; color: var(--c-text); }
   max-width: 520px;
   margin-bottom: var(--sp-4);
   line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Rotating Specialization — Dual-Span Ping-Pong
+   ─────────────────────────────────────────────────────────────────────────
+   Architecture: .spec-stage holds TWO <span> elements (A and B).
+   JS alternates which is "on stage". Both animate simultaneously.
+
+   WHY NO overflow:hidden:
+   overflow:hidden clips any translateY offset, making the entering word
+   invisible until it reaches Y=0. This is the root cause of "instant swap".
+   We use a fixed height + overflow:visible instead. The overlapping spans
+   during the 500ms transition are imperceptible since they're stacked.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.hero-specialization {
+  margin-bottom: var(--sp-3);
+}
+
+.spec-stage {
+  position: relative;
+  height: 2em;             /* Fixed height — prevents layout shift */
+  overflow: visible;       /* MUST be visible — clipping kills translateY */
+}
+
+/* ── Shared span styles ── */
+.spec-span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  font-size: clamp(1.0625rem, 2.4vw, 1.3125rem);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+  color: var(--c-accent-2);
+
+  /* All three properties animate */
+  transition:
+    opacity   0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter    0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+/* ── ON STAGE: fully visible, resting position ── */
+.spec-span.spec-on {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+/* ── OFF STAGE (exiting, above): faded upward ── */
+.spec-span.spec-off {
+  opacity: 0;
+  transform: translateY(-16px);
+  filter: blur(6px);
+  pointer-events: none;
+  aria-hidden: true;
+}
+
+/* ── WAITING (entering, below): faded below ── */
+.spec-span.spec-off-below {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* ── Reduced motion: static, no animation ── */
+@media (prefers-reduced-motion: reduce) {
+  .spec-span {
+    transition: none !important;
+  }
+  .spec-stage {
+    height: auto;
+    overflow: visible;
+  }
+  .spec-span.spec-off,
+  .spec-span.spec-off-below {
+    display: none;
+  }
+  .spec-span.spec-on {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    position: static;
+  }
 }
 
 .hero-tags {

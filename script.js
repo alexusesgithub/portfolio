@@ -11,6 +11,94 @@
   const qs  = (s, ctx = document) => ctx.querySelector(s);
   const qsa = (s, ctx = document) => [...ctx.querySelectorAll(s)];
 
+  /* ─── Rotating Specialization — Ping-Pong Engine ────────────────────────
+   *
+   * Two <span> elements (A and B) are always in the DOM.
+   * "On stage" span = spec-on   (opacity:1, translateY:0,  blur:0)
+   * "Off stage" span = spec-off  (opacity:0, translateY:-16px, blur:6px)
+   * "Waiting"   span = spec-off-below (opacity:0, translateY:16px, blur:6px)
+   *
+   * Each rotation cycle:
+   *   1. Write the next phrase to the standby span
+   *   2. Swap classes: standby → spec-on, active → spec-off
+   *   3. CSS transitions fire on BOTH simultaneously (500ms)
+   *
+   * Zero DOM creation during animation. Zero nested timeouts.
+   * ─────────────────────────────────────────────────────────────────────── */
+  const specStage = qs('#spec-stage');
+
+  const phrases = [
+    'Full Stack Development',
+    'AI Engineering',
+    'Machine Learning',
+    'Spring Boot APIs',
+    'Modern Web Apps',
+    'Generative AI',
+    'REST API Design',
+    'Backend Systems',
+  ];
+
+  if (specStage) {
+    const spanA = qs('#spec-a');
+    const spanB = qs('#spec-b');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      // Static: just show first phrase, hide B
+      if (spanA) spanA.textContent = phrases[0];
+      if (spanB) spanB.style.display = 'none';
+    } else {
+      let phraseIdx = 1;           // B starts pre-loaded with phrases[1]
+      let activeSpan  = spanA;    // currently ON stage
+      let standbySpan = spanB;    // currently waiting below
+
+      // Ensure correct initial classes
+      if (spanA) { spanA.className = 'spec-span spec-on'; }
+      if (spanB) { spanB.className = 'spec-span spec-off-below'; spanB.removeAttribute('aria-hidden'); }
+
+      function rotate() {
+        // 1. Load next phrase into the standby span
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        standbySpan.textContent = phrases[phraseIdx];
+        specStage.setAttribute('aria-label', phrases[phraseIdx]);
+
+        // 2. Swap classes — triggers CSS transitions on both spans at once
+        //    Active: spec-on → spec-off  (fades up, blurs out)
+        //    Standby: spec-off-below → spec-on  (rises up, unblurs)
+        activeSpan.className  = 'spec-span spec-off';
+        standbySpan.className = 'spec-span spec-on';
+
+        // 3. Swap roles for next cycle, reset the now-offstage span to "below"
+        const prev = activeSpan;
+        activeSpan  = standbySpan;
+        standbySpan = prev;
+
+        // 4. After the exit transition finishes (500ms), move standby to below
+        //    position so it's ready to enter from below next time.
+        //    Use a timeout slightly longer than the CSS transition (500ms + buffer).
+        setTimeout(() => {
+          standbySpan.className = 'spec-span spec-off-below';
+        }, 520);
+      }
+
+      // Start rotating. Pause when hero is off-screen to save CPU.
+      let timer = null;
+      const heroSection = qs('#home');
+
+      function startTimer() { if (!timer) timer = setInterval(rotate, 3100); }
+      function stopTimer()  { clearInterval(timer); timer = null; }
+
+      if (heroSection && 'IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          entries[0].isIntersecting ? startTimer() : stopTimer();
+        }, { threshold: 0.2 }).observe(heroSection);
+      } else {
+        startTimer();
+      }
+    }
+  }
+
+
   /* ─── Navigation: scroll-based class & active link ──────────────────── */
   const header   = qs('.site-header');
   const navLinks = qsa('.nav-link');
