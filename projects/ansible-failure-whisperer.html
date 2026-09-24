@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansible Failure Whisperer — Alex A</title>
+    <meta name="description"
+        content="Case study: an LLM-powered diagnostics tool that turns Ansible/AWX automation failures into plain-English root-cause explanations using local Qwen 3.5B inference.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="dot"></span> Alex A</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#work">Work</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://github.com/alexusesgithub" class="icon-link" target="_blank" rel="noopener"
+                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="../assets/Alex_A_Resume.pdf" class="btn btn-outline btn-sm nav-btn" target="_blank"><i
+                        class="fa-solid fa-arrow-down"></i> Resume</a>
+                <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-links">
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main">
+        <header class="cs-hero wrap">
+            <a href="../index.html#work" class="cs-back reveal"><i class="fa-solid fa-arrow-left"></i> Back to work</a>
+            <span class="badge badge-accent reveal">Internal tool · Sennovate</span>
+            <h1 class="reveal" style="margin-top:1rem;">Ansible Failure Whisperer</h1>
+            <p class="cs-tagline reveal">LLM-powered failure diagnostics for Ansible/AWX automation — turning
+                cryptic failure logs into a plain-English root cause, using a model that runs entirely on local
+                infrastructure.</p>
+            <div class="cs-meta-grid reveal">
+                <div class="cs-meta-item">
+                    <h5>Role</h5>
+                    <p>Sole builder</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Company</h5>
+                    <p>Sennovate</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Model</h5>
+                    <p>Qwen 3.5B (local)</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Status</h5>
+                    <p>Internal tool, in use</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Stack</h5>
+                    <p>Python, Ansible, AWX</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrap cs-body">
+            <nav class="cs-toc reveal" aria-label="Case study sections">
+                <a href="#overview">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#approach">Approach</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#demo">Demo</a>
+                <a href="#challenges">Key Challenges</a>
+                <a href="#outcome">Outcome</a>
+                <a href="#stack">Tech Stack</a>
+            </nav>
+
+            <div class="cs-content">
+                <section id="overview" class="cs-section reveal">
+                    <h2>Overview</h2>
+                    <p>Ansible and AWX are core to how Sennovate automates infrastructure and security operations,
+                        but when a job fails, the output is a wall of module tracebacks and host-level errors that
+                        takes real effort to parse — especially for anyone who isn't the person who wrote the
+                        playbook. I built a tool that reads that raw failure output and returns a short, accurate,
+                        plain-English explanation of what actually went wrong.</p>
+                </section>
+
+                <section id="problem" class="cs-section reveal">
+                    <h2>The Problem</h2>
+                    <p>Automation failures are frequent enough to be a real time cost, and the people triaging them
+                        aren't always the ones who wrote the playbook. The failure signal is there in the logs, but
+                        it's buried:</p>
+                    <ul>
+                        <li>AWX job output mixes module internals, retries, and the actual failure reason together.</li>
+                        <li>Diagnosing a failure often meant re-reading logs line by line to find the one that
+                            mattered.</li>
+                        <li>Sending logs to an external LLM API wasn't acceptable — this is infrastructure and
+                            security-adjacent data that needed to stay on-prem.</li>
+                    </ul>
+                </section>
+
+                <section id="approach" class="cs-section reveal">
+                    <h2>Approach</h2>
+                    <p>Rather than treating this as "point a chatbot at the logs," I built a focused diagnostics
+                        pipeline: extract the failed task and relevant log context, construct a targeted prompt around
+                        it, and run inference locally against Qwen 3.5B so no failure data — some of which touches
+                        security and access systems — ever leaves the network.</p>
+                </section>
+
+                <section id="architecture" class="cs-section reveal">
+                    <h2>Architecture</h2>
+                    <div class="pipeline">
+                        <div class="pipeline-node"><div class="node-box">AWX / Ansible failure</div><div class="node-sub">job log</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Log extraction</div><div class="node-sub">failed task + context</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Prompt assembly</div><div class="node-sub">Python</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Local LLM</div><div class="node-sub">Qwen 3.5B</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Plain-English explanation</div><div class="node-sub">to engineer</div></div>
+                    </div>
+                    <p>Keeping inference local was a hard requirement, not a preference — it's what made the tool
+                        usable on infrastructure and security-related automation in the first place.</p>
+                </section>
+
+                <section id="demo" class="cs-section reveal">
+                    <h2>Demo</h2>
+                    <p>Three example failures, run through the same pipeline. Output below is illustrative of the
+                        tool's actual behavior — it's a simulated re-run, not a live model call from this page.</p>
+                    <div class="demo-panel" data-demo="ansible">
+                        <div class="demo-label">
+                            <span class="badge badge-neutral"><i class="fa-solid fa-flask"></i> Simulated demo
+                                output</span>
+                        </div>
+                        <div class="demo-steps">
+                            <button class="demo-step-btn" data-step="0">SSH timeout</button>
+                            <button class="demo-step-btn" data-step="1">Missing package</button>
+                            <button class="demo-step-btn" data-step="2">Bad playbook syntax</button>
+                        </div>
+                        <div class="demo-output"></div>
+                    </div>
+                </section>
+
+                <section id="challenges" class="cs-section reveal">
+                    <h2>Key Challenges</h2>
+                    <ul>
+                        <li><strong>Running a useful model locally</strong> — local inference means a smaller model
+                            and tighter latency/quality tradeoffs than a hosted frontier LLM; prompt design had to do
+                            more of the work.</li>
+                        <li><strong>Extracting the right log context</strong> — AWX output is verbose; picking the
+                            slice that actually explains the failure (without truncating the real cause) mattered more
+                            than the model itself.</li>
+                        <li><strong>Keeping explanations trustworthy</strong> — a confident-sounding wrong answer is
+                            worse than no answer, so outputs needed to stay grounded in what the logs actually showed.</li>
+                    </ul>
+                </section>
+
+                <section id="outcome" class="cs-section reveal">
+                    <h2>Outcome</h2>
+                    <p>The tool cuts down the time engineers spend manually reading AWX failure logs, and keeps that
+                        diagnostic step entirely on local infrastructure — no automation or security-adjacent data
+                        goes to an external API.</p>
+                </section>
+
+                <section id="stack" class="cs-section reveal">
+                    <h2>Tech Stack</h2>
+                    <div class="cs-stack-grid">
+                        <span class="chip">Python</span><span class="chip">Local LLM Inference</span>
+                        <span class="chip">Qwen 3.5B</span><span class="chip">Ansible</span><span class="chip">AWX</span>
+                        <span class="chip">AI-Powered Diagnostics</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="wrap cs-nav-footer reveal">
+            <a href="access-governance.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Access
+                Governance Platform</a>
+            <a href="decisio.html" class="btn btn-outline">Decisio <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-left"><span>&copy; 2026 Alex A.</span></div>
+            <div class="footer-socials">
+                <a href="https://github.com/alexusesgithub" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:alex.data.dev44@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        window.DEMO_CONTENT = window.DEMO_CONTENT || {};
+        window.DEMO_CONTENT.ansible = [
+            '<span class="k">task</span>: <span class="v">Deploy config to host-12</span>\n<span class="k">raw_error</span>: <span class="v">UNREACHABLE: ssh connect timeout after 3 retries</span>\n\n<span class="g">Explanation:</span>\nhost-12 refused the SSH connection three times in a row.\nThis is almost always a network path or credential issue —\nnot a problem with the playbook itself. Check host-12 is\nreachable and its SSH key/credentials in AWX are current.',
+            '<span class="k">task</span>: <span class="v">Install nginx</span>\n<span class="k">raw_error</span>: <span class="v">No package matching \'nginx-extras\' found</span>\n\n<span class="g">Explanation:</span>\nThe target host\'s package repo doesn\'t have \'nginx-extras\'.\nLikely a repo mismatch for this OS version rather than a\ntypo — worth confirming which repo channel host is on.',
+            '<span class="k">task</span>: <span class="v">Configure firewall rules</span>\n<span class="k">raw_error</span>: <span class="v">yaml.scanner.ScannerError: mapping values not allowed here</span>\n\n<span class="g">Explanation:</span>\nThe playbook has a YAML indentation error near the\nfirewall rules block — a value is likely missing quotes\nor a colon is used where a list item was intended.'
+        ];
+    </script>
+    <script src="case-study.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Access Governance Platform — Alex A</title>
+    <meta name="description"
+        content="Case study: an enterprise access-governance platform reconciling identity, account, application and entitlement data to support User Access Reviews.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="dot"></span> Alex A</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#work">Work</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://github.com/alexusesgithub" class="icon-link" target="_blank" rel="noopener"
+                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="../assets/Alex_A_Resume.pdf" class="btn btn-outline btn-sm nav-btn" target="_blank"><i
+                        class="fa-solid fa-arrow-down"></i> Resume</a>
+                <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-links">
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main">
+        <header class="cs-hero wrap">
+            <a href="../index.html#work" class="cs-back reveal"><i class="fa-solid fa-arrow-left"></i> Back to work</a>
+            <span class="badge badge-amber reveal">Prototype · Sanitized demo data</span>
+            <h1 class="reveal" style="margin-top:1rem;">Enterprise Access Governance Platform</h1>
+            <p class="cs-tagline reveal">A reconciliation engine and review platform that unifies identity, account,
+                application and entitlement data — built to answer one question enterprises struggle with: who has
+                access, and should they?</p>
+            <div class="cs-meta-grid reveal">
+                <div class="cs-meta-item">
+                    <h5>Role</h5>
+                    <p>Designer & builder</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Company</h5>
+                    <p>Sennovate</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Timeframe</h5>
+                    <p>2026 — Present</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Status</h5>
+                    <p>Internal prototype / PoC</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Stack</h5>
+                    <p>Python, SQL, REST APIs</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrap cs-body">
+            <nav class="cs-toc reveal" aria-label="Case study sections">
+                <a href="#overview">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#reconciliation">Reconciliation</a>
+                <a href="#workflow">UAR Workflow</a>
+                <a href="#demo">Investigation Demo</a>
+                <a href="#challenges">Key Challenges</a>
+                <a href="#outcome">Outcome</a>
+                <a href="#stack">Tech Stack</a>
+            </nav>
+
+            <div class="cs-content">
+                <section id="overview" class="cs-section reveal">
+                    <h2>Overview</h2>
+                    <p>Most enterprises run identity and access data across HR systems, IAM tools, and dozens of
+                        individual applications — each with its own notion of who a user is and what they can do.
+                        Nobody owns a single, reconciled view of it. I designed and built a governance platform that
+                        consolidates application, identity, account and entitlement data into one inventory, detects
+                        access problems automatically, and gives reviewers a structured workflow to act on them.</p>
+                    <p>This started as a User Access Review (UAR) tool and grew into a broader identity-governance
+                        proof of concept covering the full lifecycle: ingestion → reconciliation → investigation →
+                        review → remediation → audit.</p>
+                    <div class="callout">
+                        <strong>Transparency note:</strong> this is an internal prototype built with sanitized and
+                        synthetic demo data. It does not use live production integrations, real employee or customer
+                        records, or confidential Sennovate client data. Screens and data shown here are illustrative,
+                        not a live system.
+                    </div>
+                </section>
+
+                <section id="problem" class="cs-section reveal">
+                    <h2>The Problem</h2>
+                    <p>User Access Reviews are usually done by exporting spreadsheets from five different systems and
+                        manually cross-referencing them — a process that's slow, error-prone, and nearly impossible
+                        to audit. The specific failure modes I kept seeing:</p>
+                    <ul>
+                        <li>Terminated employees whose application access was never revoked.</li>
+                        <li>Service and orphan accounts with no clear human or system owner.</li>
+                        <li>The same identity represented inconsistently across multiple source systems.</li>
+                        <li>No single place to see evidence for an access decision, let alone prove it during an
+                            audit.</li>
+                    </ul>
+                </section>
+
+                <section id="architecture" class="cs-section reveal">
+                    <h2>Data Model & Architecture</h2>
+                    <p>The core of the platform is a normalized data model that every source system's data gets
+                        mapped into before anything else happens:</p>
+                    <div class="pipeline">
+                        <div class="pipeline-node"><div class="node-box">HR Records</div><div class="node-sub">source</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Identities</div><div class="node-sub">resolved</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Accounts</div><div class="node-sub">per system</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Applications</div><div class="node-sub">inventory</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Entitlements</div><div class="node-sub">& ownership</div></div>
+                    </div>
+                    <p>On top of that model sits the operational layer: exceptions, UAR reviews, remediations,
+                        verifications, certifications, and audit events — each one traceable back to the source data
+                        that produced it.</p>
+                    <p>Platform surfaces built on this model:</p>
+                    <ul>
+                        <li><strong>Overview & Triage</strong> — a single view of governance health across all
+                            connected sources.</li>
+                        <li><strong>Exception Center</strong> — every detected issue, prioritized and assignable.</li>
+                        <li><strong>Identities & Accounts</strong> and <strong>Applications</strong> — the resolved
+                            inventory itself.</li>
+                        <li><strong>Source Data Explorer</strong> and <strong>Investigation Drawer</strong> — drill
+                            into raw source records and compare evidence across systems.</li>
+                        <li><strong>UAR Review Console</strong> — the reviewer-facing workflow for certifying or
+                            revoking access.</li>
+                        <li><strong>Remediation & Verification Pipeline</strong> and <strong>Audit Evidence
+                                Matrix</strong> — closing the loop and proving it happened.</li>
+                    </ul>
+                </section>
+
+                <section id="reconciliation" class="cs-section reveal">
+                    <h2>The Reconciliation Engine</h2>
+                    <p>The reconciliation engine is the part that actually finds problems. It walks the resolved data
+                        model and flags specific, named exception types rather than a generic "review this" flag:</p>
+                    <div class="issue-grid">
+                        <div class="issue-card"><code>TERMINATED_ACTIVE_ACCESS</code><p>Identity is terminated in HR
+                                but still has an active account or entitlement somewhere.</p></div>
+                        <div class="issue-card"><code>ORPHAN_ACCOUNT</code><p>Account exists in a target system with
+                                no linked identity at all.</p></div>
+                        <div class="issue-card"><code>UNLINKED_ACCOUNT</code><p>Account exists but couldn't be
+                                confidently resolved to a known identity.</p></div>
+                        <div class="issue-card"><code>DUPLICATE_IDENTITY</code><p>The same person appears as more
+                                than one identity record across sources.</p></div>
+                        <div class="issue-card"><code>CONFLICTING_ACCESS_STATUS</code><p>Access status disagrees
+                                between two source systems for the same identity.</p></div>
+                        <div class="issue-card"><code>UNOWNED_SERVICE_ACCOUNT</code><p>Service account with no
+                                assigned human or team owner of record.</p></div>
+                    </div>
+                    <p>Every exception carries the evidence that produced it, so a reviewer never has to take the
+                        engine's word for it — they can open the Investigation Drawer and see the conflicting records
+                        side by side.</p>
+                </section>
+
+                <section id="workflow" class="cs-section reveal">
+                    <h2>UAR & Remediation Workflow</h2>
+                    <p>Exceptions feed directly into the review workflow:</p>
+                    <div class="pipeline">
+                        <div class="pipeline-node"><div class="node-box">Exception detected</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">UAR review</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Remediation</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Verification</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Audit trail</div></div>
+                    </div>
+                    <p>A reviewer certifies or revokes access with the evidence in front of them; a remediation
+                        action is logged and tracked to verification; and every step writes an immutable audit event
+                        — so "we reviewed this" is provable, not just claimed.</p>
+                </section>
+
+                <section id="demo" class="cs-section reveal">
+                    <h2>Investigation Demo</h2>
+                    <p>A simplified walkthrough of the Investigation Drawer using synthetic demo data — click through
+                        the steps to see how one exception gets traced back to its evidence.</p>
+                    <div class="demo-panel" data-demo="uar">
+                        <div class="demo-label">
+                            <span class="badge badge-neutral"><i class="fa-solid fa-flask"></i> Simulated · synthetic
+                                data</span>
+                        </div>
+                        <div class="demo-steps">
+                            <button class="demo-step-btn" data-step="0">1. Identity</button>
+                            <button class="demo-step-btn" data-step="1">2. Accounts</button>
+                            <button class="demo-step-btn" data-step="2">3. Entitlements</button>
+                            <button class="demo-step-btn" data-step="3">4. Exception raised</button>
+                        </div>
+                        <div class="demo-output"></div>
+                    </div>
+                </section>
+
+                <section id="challenges" class="cs-section reveal">
+                    <h2>Key Challenges</h2>
+                    <ul>
+                        <li><strong>Identity resolution across inconsistent sources</strong> — the same person shows
+                            up with different names, IDs and formats per system; resolving them into one identity
+                            without false-merging distinct people was the hardest single problem.</li>
+                        <li><strong>Designing exceptions reviewers would actually trust</strong> — a flag with no
+                            evidence gets ignored. Every exception had to carry its supporting records.</li>
+                        <li><strong>Making remediation provable, not just logged</strong> — audit evidence had to be
+                            structured so a certification could be reconstructed after the fact, not just asserted.</li>
+                    </ul>
+                </section>
+
+                <section id="outcome" class="cs-section reveal">
+                    <h2>Outcome</h2>
+                    <p>The platform evolved from a single-purpose UAR tool into a working proof of concept for a
+                        broader identity-governance product line at Sennovate, with a data model and reconciliation
+                        engine that generalizes across new source systems without a rebuild.</p>
+                </section>
+
+                <section id="stack" class="cs-section reveal">
+                    <h2>Tech Stack</h2>
+                    <div class="cs-stack-grid">
+                        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">REST APIs</span>
+                        <span class="chip">Schema Design</span><span class="chip">Data Reconciliation</span>
+                        <span class="chip">Identity Resolution</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="wrap cs-nav-footer reveal">
+            <a href="../index.html#work" class="btn btn-ghost"><i class="fa-solid fa-arrow-left"></i> All work</a>
+            <a href="ansible-failure-whisperer.html" class="btn btn-outline">Ansible Failure Whisperer <i
+                    class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-left"><span>&copy; 2026 Alex A.</span></div>
+            <div class="footer-socials">
+                <a href="https://github.com/alexusesgithub" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:alex.data.dev44@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        window.DEMO_CONTENT = window.DEMO_CONTENT || {};
+        window.DEMO_CONTENT.uar = [
+            '<span class="k">identity_id</span>: <span class="v">DEMO-IDN-2291</span>\n<span class="k">name</span>: <span class="v">J. Rivera (synthetic)</span>\n<span class="k">hr_status</span>: <span class="v">TERMINATED</span>\n<span class="k">term_date</span>: <span class="v">2026-03-01</span>',
+            '<span class="k">linked_accounts</span>:\n  - <span class="v">okta://j.rivera</span> — disabled\n  - <span class="v">crm-app://jrivera</span> — <span class="k">ACTIVE</span>\n  - <span class="v">file-share://j.rivera</span> — disabled',
+            '<span class="k">crm-app entitlements</span>:\n  - <span class="v">customer_records.read</span>\n  - <span class="v">customer_records.export</span>\n<span class="k">owner_of_record</span>: <span class="v">none found</span>',
+            '<span class="g">EXCEPTION RAISED</span>\n<span class="k">type</span>: <span class="v">TERMINATED_ACTIVE_ACCESS</span>\n<span class="k">system</span>: <span class="v">crm-app</span>\n<span class="k">severity</span>: <span class="v">HIGH</span>\n<span class="k">next_step</span>: <span class="v">routed to UAR review queue</span>'
+        ];
+    </script>
+    <script src="case-study.js"></script>
+</body>
+
+</html>

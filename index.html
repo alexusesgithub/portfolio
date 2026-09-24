@@ -4,463 +4,589 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex A | Full Stack Developer</title>
-    <!-- Google Fonts -->
+    <title>Alex A — AI/ML Engineer | LLM, RAG & Python</title>
+    <meta name="description"
+        content="Alex A is an AI/ML Engineer and final-year Computer Science student building LLM-powered applications, RAG pipelines, machine learning systems, and Python backend platforms.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alex A — AI/ML Engineer | LLM, RAG & Python">
+    <meta property="og:description"
+        content="AI/ML Engineer building LLM-powered applications, RAG pipelines, ML systems, and Python backend platforms.">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="bg-pattern"></div>
-    <div class="glow-circle glow-1"></div>
-    <div class="glow-circle glow-2"></div>
-    <div class="glow-circle glow-3"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
+            <a href="#home" class="logo"><span class="dot"></span> Alex A</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-right">
-                <a href="https://github.com" class="icon-link" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" class="icon-link" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline nav-btn" target="_blank"><i
-                        class="fa-solid fa-download"></i> Resume</a>
-                <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+                <a href="https://github.com/alexusesgithub" class="icon-link" target="_blank" rel="noopener"
+                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="icon-link" target="_blank"
+                    rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline btn-sm nav-btn" target="_blank"><i
+                        class="fa-solid fa-arrow-down"></i> Resume</a>
+                <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile menu -->
     <div class="mobile-menu">
-        <div class="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
         <ul class="mobile-links">
-            <!-- populated by JS -->
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="mobile-actions">
+            <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline" target="_blank"><i
+                    class="fa-solid fa-arrow-down"></i> Resume</a>
+            <a href="https://github.com/alexusesgithub" class="btn btn-ghost" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-github"></i> GitHub</a>
+        </div>
     </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
+    <main id="main">
+        <!-- Hero -->
+        <section id="home" class="hero wrap">
             <div class="hero-content reveal">
-                <h3 class="hero-greeting">Hello, I'm</h3>
-                <h1 class="hero-name">Alex <span>A</span></h1>
-                <h2 class="subtitle">Full Stack Developer</h2>
-                <div class="typewriter">
-                    I am a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-                </div>
-                <p class="intro">
-                    Computer Science undergraduate passionate about developing scalable full-stack applications using
-                    Java, Spring Boot, REST APIs, HTML, CSS, JavaScript, React, Next.js, and AI-powered solutions.
-                </p>
+                <p class="hero-eyebrow">AI/ML Engineer <span class="sep">·</span> Python <span class="sep">·</span>
+                    LLMs <span class="sep">·</span> RAG</p>
+                <h1>I build AI-powered systems that <span class="accent-text">solve real problems.</span></h1>
+                <p class="hero-desc">Final-year Computer Science student and AI Engineer building LLM-powered
+                    applications, ML systems, enterprise automation, and the backend platforms that hold them
+                    together.</p>
+                <div class="hero-role"><span class="pulse"></span> Currently: AI Intern @ Sennovate</div>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-laptop-code"></i> View
-                        Projects</a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contact Me</a>
-                    <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline mobile-hide" target="_blank"><i
-                            class="fa-solid fa-download"></i> Download Resume</a>
+                    <a href="#work" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> View Work</a>
+                    <a href="https://github.com/alexusesgithub" class="btn btn-outline" target="_blank"
+                        rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="assets/Alex_A_Resume.pdf" class="btn btn-outline" target="_blank"><i
+                            class="fa-solid fa-file"></i> Resume</a>
+                    <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> Contact</a>
                 </div>
             </div>
-            <div class="hero-image reveal reveal-right">
-                <div class="img-wrapper">
-                    <img src="assets/hero-illustration.png" alt="Developer Illustration">
+            <div class="hero-visual reveal">
+                <div class="terminal">
+                    <div class="terminal-bar">
+                        <span class="terminal-dot"></span><span class="terminal-dot"></span><span
+                            class="terminal-dot"></span>
+                        <span class="terminal-title">ansible-failure-whisperer — local</span>
+                    </div>
+                    <div class="terminal-body" id="hero-terminal">
+                        <div><span class="prompt">$</span> <span class="cmd">diagnose --job 4821 --engine qwen3.5b-local</span></div>
+                        <div class="out">&gt; parsing AWX failure log...</div>
+                        <div class="out">&gt; failed task: <span class="accent">Deploy config to host-12</span></div>
+                        <div class="out">&gt; root cause: SSH auth timeout after 3 retries</div>
+                        <div class="out">&gt; generating plain-English explanation...</div>
+                        <div class="ok">&gt; done in 1.2s — no cloud calls, inference stayed local.</div>
+                        <div><span class="prompt">$</span> <span class="cur"></span></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="about">
-            <h2 class="section-title reveal">About <span>Me</span></h2>
-            <div class="about-container">
-                <div class="about-text reveal reveal-left">
-                    <p>I am Alex A, a Bachelor of Computer Science and Engineering student at Dr. N.G.P. Institute of
-                        Technology, Coimbatore.</p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <div>
-                                <strong>Expected Graduation:</strong>
-                                <span>May 2027</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fa-solid fa-star"></i>
-                            <div>
-                                <strong>CGPA:</strong>
-                                <span>8.17</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p>I enjoy building scalable web applications using Java, Spring Boot, REST APIs, and modern
-                        frontend technologies. I am passionate about software engineering, backend development, and
-                        AI-powered applications.</p>
+        <!-- Credibility strip -->
+        <section class="credibility">
+            <div class="wrap">
+                <div class="cred-role">
+                    <i class="fa-solid fa-building" style="color: var(--text-tertiary);"></i>
+                    <span><strong>AI Intern</strong> @ Sennovate — enterprise AI, automation & identity governance,
+                        Jul 2026–Present</span>
                 </div>
-                <div class="about-stats reveal reveal-right">
-                    <div class="stat-card">
-                        <h3>8.17</h3>
+                <div class="cred-stats">
+                    <div class="cred-stat">
+                        <h3>3</h3>
+                        <p>Flagship AI/ML systems</p>
+                    </div>
+                    <div class="cred-stat">
+                        <h3>4×</h3>
+                        <p>Hackathon top finishes</p>
+                    </div>
+                    <div class="cred-stat">
+                        <h3>8.22</h3>
                         <p>CGPA</p>
                     </div>
-                    <div class="stat-card">
-                        <h3>3+</h3>
-                        <p>Projects</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>2</h3>
-                        <p>Hackathon Wins</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>2×</h3>
-                        <p>National Finalist</p>
+                    <div class="cred-stat">
+                        <h3>2027</h3>
+                        <p>Expected graduation</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education" class="education">
-            <h2 class="section-title reveal">Education</h2>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card">
-                        <h3>Dr. N.G.P. Institute of Technology</h3>
-                        <h4>Bachelor of Computer Science and Engineering</h4>
-                        <div class="timeline-meta">
-                            <p class="date"><i class="fa-regular fa-calendar"></i> August 2023 – May 2027</p>
-                            <p class="cgpa badge"><i class="fa-solid fa-chart-line"></i> CGPA: 8.17</p>
+        <!-- Featured Work -->
+        <section id="work" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Featured Work</p>
+                <h2 class="section-title">What I've actually built</h2>
+                <p class="section-sub">Three systems that best represent how I work: real problems, real
+                    architecture, honest tradeoffs.</p>
+            </div>
+
+            <div class="feature-list">
+                <!-- 01 Access Governance -->
+                <article class="feature-card reveal">
+                    <div class="feature-index">01</div>
+                    <div class="feature-body">
+                        <h3>Enterprise Access Governance Platform</h3>
+                        <p class="feature-tagline">Reconciling identity, account, application & entitlement data to
+                            answer: who has access, and should they?</p>
+                        <p class="feature-desc">Enterprises accumulate access across dozens of systems until nobody
+                            can say with confidence who can reach what. I designed and built a governance platform
+                            that ingests identity, account, application and entitlement data into one model, runs a
+                            reconciliation engine to surface risky access, and supports the full User Access Review
+                            workflow from exception to remediation.</p>
+                        <div class="feature-meta">
+                            <span class="chip">Python</span>
+                            <span class="chip">Reconciliation Engine</span>
+                            <span class="chip">Data Modeling</span>
+                            <span class="chip">Identity Governance</span>
+                        </div>
+                        <div class="feature-actions">
+                            <a href="projects/access-governance.html" class="btn btn-outline btn-sm">Read case study
+                                <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
+                    <div class="feature-aside">
+                        <span class="badge badge-amber">Prototype · Sanitized data</span>
+                        <span class="feature-status">Sennovate — 2026</span>
+                    </div>
+                </article>
+
+                <!-- 02 Ansible Failure Whisperer -->
+                <article class="feature-card reveal">
+                    <div class="feature-index">02</div>
+                    <div class="feature-body">
+                        <h3>Ansible Failure Whisperer</h3>
+                        <p class="feature-tagline">LLM-powered diagnostics that turn cryptic AWX failure logs into
+                            plain-English root causes.</p>
+                        <p class="feature-desc">Ansible/AWX failures bury the actual cause in walls of log output that
+                            take engineers real time to parse. I built a diagnostics tool that feeds failure output
+                            through a local LLM (Qwen 3.5B) and returns a clear explanation of what broke and why —
+                            with inference running on-prem, not in the cloud.</p>
+                        <div class="feature-meta">
+                            <span class="chip">Python</span>
+                            <span class="chip">Local LLM Inference</span>
+                            <span class="chip">Qwen 3.5B</span>
+                            <span class="chip">Ansible / AWX</span>
+                        </div>
+                        <div class="feature-actions">
+                            <a href="projects/ansible-failure-whisperer.html" class="btn btn-outline btn-sm">Read
+                                case study <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="feature-aside">
+                        <span class="badge badge-accent">Internal tool</span>
+                        <span class="feature-status">Sennovate — 2026</span>
+                    </div>
+                </article>
+
+                <!-- 03 Decisio -->
+                <article class="feature-card reveal">
+                    <div class="feature-index">03</div>
+                    <div class="feature-body">
+                        <h3>Decisio</h3>
+                        <p class="feature-tagline">A RAG-powered decision-intelligence platform that grounds LLM
+                            recommendations in real business documents.</p>
+                        <p class="feature-desc">Business teams have data and documents scattered everywhere, but
+                            turning that into an actual recommendation is manual and slow. Decisio retrieves the
+                            relevant context — business documents, competitor data — and grounds an LLM's reasoning in
+                            it, producing decision support that's specific to the business, not generic advice.</p>
+                        <div class="feature-meta">
+                            <span class="chip">Python</span>
+                            <span class="chip">RAG</span>
+                            <span class="chip">FastAPI</span>
+                            <span class="chip">Flask</span>
+                        </div>
+                        <div class="feature-actions">
+                            <a href="projects/decisio.html" class="btn btn-outline btn-sm">Read case study <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="feature-aside">
+                        <span class="badge badge-violet"><i class="fa-solid fa-trophy"></i> Top 10 / 1,500+</span>
+                        <span class="feature-status">Hackathon — 2025</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="more-work-head reveal">
+                <h3>More work</h3>
+            </div>
+            <div class="more-work-grid reveal">
+                <div class="mini-card">
+                    <h4>MailGuard AI <span class="badge badge-neutral">National Finalist</span></h4>
+                    <p>Email classifier separating phishing, spam and legitimate mail using TF-IDF and a Flask
+                        interface for real-time analysis.</p>
+                    <div class="chip-row">
+                        <span class="chip">Python</span><span class="chip">Scikit-learn</span><span
+                            class="chip">NLP</span>
+                    </div>
+                    <div style="margin-top: 1.1rem;">
+                        <a href="https://github.com/alexusesgithub/email-spam-analyser" class="btn btn-ghost btn-sm"
+                            target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <h4>EduQuity <span class="badge badge-neutral">Winner</span></h4>
+                    <p>Full-stack education platform with role-based dashboards and a Gemini-powered tutoring
+                        assistant. Shows I ship full-stack, not just AI.</p>
+                    <div class="chip-row">
+                        <span class="chip">Next.js</span><span class="chip">TypeScript</span><span
+                            class="chip">Gemini API</span>
+                    </div>
+                    <div style="margin-top: 1.1rem;">
+                        <a href="https://github.com/alexusesgithub/ai-education-equity-system"
+                            class="btn btn-ghost btn-sm" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <h4>HeartSense</h4>
+                    <p>Health risk prediction tool applying classic ML techniques to structured clinical data.</p>
+                    <div class="chip-row">
+                        <span class="chip">Python</span><span class="chip">Scikit-learn</span>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <h4>AI Resume Enhancer</h4>
+                    <p>LLM-assisted tool that analyzes and improves resume content and structure.</p>
+                    <div class="chip-row">
+                        <span class="chip">Python</span><span class="chip">LLMs</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2 class="section-title reveal">Technical <span>Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-java"></i> Java</span>
-                        <span><i class="fa-brands fa-python"></i> Python</span>
-                        <span><i class="fa-solid fa-database"></i> SQL</span>
-                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                        <span>TypeScript</span>
+        <!-- Capabilities -->
+        <section id="capabilities" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Engineering Capabilities</p>
+                <h2 class="section-title">What I actually work with</h2>
+                <p class="section-sub">Grouped by the kind of problem I'm solving — each backed by shipped work, not
+                    a badge wall.</p>
+            </div>
+            <div class="capability-grid">
+                <div class="capability-card reveal">
+                    <div class="cap-num">01</div>
+                    <h3>LLM & GenAI Systems</h3>
+                    <p>Retrieval-augmented generation, prompt engineering, and local model inference for
+                        production-adjacent use cases — grounding LLM output in real data instead of hoping it's
+                        right.</p>
+                    <div class="chip-row">
+                        <span class="chip">RAG</span><span class="chip">LangChain</span><span
+                            class="chip">LangGraph</span><span class="chip">LlamaIndex</span><span
+                            class="chip">Ollama</span><span class="chip">FAISS / Chroma</span>
                     </div>
+                    <div class="cap-projects">Used in: <span>Decisio, Ansible Failure Whisperer</span></div>
                 </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-desktop"></i> Frontend</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-html5"></i> HTML5</span>
-                        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                        <span><i class="fa-brands fa-react"></i> React.js</span>
-                        <span>Next.js</span>
-                        <span>Tailwind CSS</span>
+                <div class="capability-card reveal">
+                    <div class="cap-num">02</div>
+                    <h3>Backend & Data Systems</h3>
+                    <p>Python services and REST APIs for data-heavy problems — schema design, reconciliation logic,
+                        and the unglamorous plumbing that makes AI features actually usable.</p>
+                    <div class="chip-row">
+                        <span class="chip">FastAPI</span><span class="chip">Flask</span><span
+                            class="chip">REST APIs</span><span class="chip">SQL</span><span
+                            class="chip">Spring Boot</span>
                     </div>
+                    <div class="cap-projects">Used in: <span>Access Governance Platform, Decisio</span></div>
                 </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-server"></i> Backend</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-solid fa-leaf"></i> Spring Boot</span>
-                        <span><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span>Flask</span>
-                        <span>FastAPI</span>
-                        <span>REST APIs</span>
+                <div class="capability-card reveal">
+                    <div class="cap-num">03</div>
+                    <h3>Applied Machine Learning</h3>
+                    <p>Classic ML where it's the right tool: classification, feature engineering, and model
+                        evaluation on real, messy, structured data.</p>
+                    <div class="chip-row">
+                        <span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span
+                            class="chip">EDA</span><span class="chip">NLP</span><span
+                            class="chip">Model Evaluation</span>
                     </div>
+                    <div class="cap-projects">Used in: <span>MailGuard AI, Heart Disease Prediction</span></div>
                 </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-database"></i> Database</h3>
-                    <div class="skill-tags">
-                        <span>MySQL</span>
-                        <span>MongoDB</span>
+                <div class="capability-card reveal">
+                    <div class="cap-num">04</div>
+                    <h3>Full-Stack Delivery</h3>
+                    <p>I can take a product from design through deployment when the problem calls for a real user
+                        interface, not just a model.</p>
+                    <div class="chip-row">
+                        <span class="chip">React</span><span class="chip">Next.js</span><span
+                            class="chip">TypeScript</span><span class="chip">Node.js</span><span
+                            class="chip">Tailwind</span>
                     </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
-                    <div class="skill-tags">
-                        <span>Scikit-learn</span>
-                        <span>Pandas</span>
-                        <span>OpenCV</span>
-                        <span>NLP</span>
-                        <span>RAG</span>
-                        <span>Prompt Engineering</span>
-                        <span>Model Evaluation</span>
-                        <span>EDA</span>
-                        <span>Gemini API</span>
-                    </div>
-                </div>
-                <div class="skill-category card reveal">
-                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
-                    <div class="skill-tags">
-                        <span><i class="fa-brands fa-git-alt"></i> Git</span>
-                        <span><i class="fa-brands fa-docker"></i> Docker</span>
-                        <span>VS Code</span>
-                        <span>Cursor</span>
-                        <span>Ollama</span>
-                        <span>n8n</span>
-                    </div>
+                    <div class="cap-projects">Used in: <span>EduQuity</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="experience">
-            <h2 class="section-title reveal">Experience</h2>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content card">
+        <!-- Experience -->
+        <section id="experience" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Experience</p>
+                <h2 class="section-title">Where this was built</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-when">
+                        Jul 2026 — Present
+                        <div class="current">● Current role</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Artificial Intelligence Intern</h3>
+                        <h4>Sennovate · Coimbatore</h4>
+                        <div class="timeline-highlights">
+                            <div class="timeline-highlight">
+                                <span class="num">01</span>
+                                <div>
+                                    <strong>Ansible Failure Whisperer</strong>
+                                    <p>Built an LLM-based diagnostics tool that analyzes Ansible/AWX automation
+                                        failures using local inference (Qwen 3.5B) and generates plain-English
+                                        explanations of root causes.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-highlight">
+                                <span class="num">02</span>
+                                <div>
+                                    <strong>Enterprise Access Governance Platform</strong>
+                                    <p>Designed a User Access Review platform consolidating application, identity,
+                                        account and entitlement data into a unified inventory, with reconciliation,
+                                        KPI analytics, and review/remediation workflows.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-highlight">
+                                <span class="num">03</span>
+                                <div>
+                                    <strong>AI research & evaluation</strong>
+                                    <p>Evaluated LLMs, RAG, and prompt engineering approaches for cybersecurity,
+                                        SOC/NOC, and enterprise automation use cases.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="projects/access-governance.html" class="case-link">View the Access Governance case
+                            study →</a>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-when">June 2025</div>
+                    <div class="timeline-content">
                         <h3>Machine Learning Intern</h3>
-                        <h4>Right Angle Solutions</h4>
-                        <div class="timeline-meta">
-                            <p class="location"><i class="fa-solid fa-location-dot"></i> Koduvai, Tiruppur</p>
-                            <p class="date"><i class="fa-regular fa-calendar"></i> June 2025</p>
+                        <h4>Right Angle Solutions · Koduvai, Tiruppur</h4>
+                        <div class="timeline-highlights">
+                            <div class="timeline-highlight">
+                                <span class="num">01</span>
+                                <div>
+                                    <strong>Heart disease prediction model</strong>
+                                    <p>Built a Logistic Regression model and improved accuracy from 86% to 93%
+                                        through exploratory data analysis and feature selection optimization.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-highlight">
+                                <span class="num">02</span>
+                                <div>
+                                    <strong>Real-time prediction interface</strong>
+                                    <p>Developed and deployed a Flask web application for real-time risk prediction
+                                        from the trained model.</p>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="responsibilities">
-                            <li>Built a Heart Disease Prediction System using Logistic Regression.</li>
-                            <li>Improved model accuracy from 86% to 93%.</li>
-                            <li>Performed Exploratory Data Analysis.</li>
-                            <li>Optimized feature selection.</li>
-                            <li>Developed and deployed a Flask web application for real-time prediction.</li>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recognition -->
+        <section id="recognition" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Recognition</p>
+                <h2 class="section-title">Selected achievements</h2>
+            </div>
+            <div class="recognition-grid">
+                <div class="recognition-card reveal">
+                    <span class="badge badge-violet"><i class="fa-solid fa-trophy"></i> Top 10 / 1,500+</span>
+                    <h4>Decisio</h4>
+                    <p>Top 10 finalist among 1,500+ participants for an enterprise decision-intelligence platform.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-emerald"><i class="fa-solid fa-medal"></i> Winner</span>
+                    <h4>EduQuity</h4>
+                    <p>Best Social Impact Project — full-stack education platform for underserved students.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-neutral"><i class="fa-solid fa-star"></i> Finalist</span>
+                    <h4>MailGuard AI</h4>
+                    <p>National-level hackathon finalist for an ML-based phishing detection system.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-emerald"><i class="fa-solid fa-trophy"></i> Winner</span>
+                    <h4>Hackathon, United Institute of Technology</h4>
+                    <p>First place among competing student teams.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-emerald"><i class="fa-solid fa-trophy"></i> Winner</span>
+                    <h4>Prompt Scapes — KPR Institute of Technology</h4>
+                    <p>First place in a prompt-engineering focused competition.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-neutral"><i class="fa-solid fa-award"></i> Runner-Up</span>
+                    <h4>Project Presentation — KPR Institute of Technology</h4>
+                    <p>Runner-up for technical project presentation.</p>
+                </div>
+                <div class="recognition-card reveal">
+                    <span class="badge badge-neutral"><i class="fa-solid fa-star"></i> Finalist ×2</span>
+                    <h4>National-Level Hackathons</h4>
+                    <p>Two-time top 10 finalist across separate national hackathons.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">About</p>
+                <h2 class="section-title">The person behind the projects</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>I'm <strong>Alex A</strong>, a final-year Computer Science and Engineering student at Dr.
+                        N.G.P. Institute of Technology, Coimbatore. My strongest technical identity is
+                        <strong>Python, AI/ML, LLMs, RAG, and the backend engineering</strong> that surrounds them —
+                        I'm not just prompting models, I'm building the systems around them: data pipelines, APIs,
+                        reconciliation logic, and evaluation.</p>
+                    <p>Outside of internships and hackathons, I run the campus <strong>Hackathon Club as Head</strong>,
+                        organizing technical events, and I've led three student projects — EduQuity, AI Resume
+                        Enhancer, and HeartSense — from design through deployment. I also collaborated with
+                        <strong>Ottonomy IO</strong>, a robotics company, on user research and market surveys
+                        supporting their autonomous robotics initiatives.</p>
+                    <p>I'm looking for AI/ML Engineer, GenAI Engineer, or Applied AI Engineer roles — with Python
+                        backend and software engineering as a strong secondary direction.</p>
+                </div>
+                <div class="about-side reveal">
+                    <div class="about-card">
+                        <h4>Education</h4>
+                        <div class="row"><span>Institution</span><span>Dr. N.G.P. Institute of Technology</span></div>
+                        <div class="row"><span>Degree</span><span>B.E. Computer Science</span></div>
+                        <div class="row"><span>Graduation</span><span>May 2027</span></div>
+                        <div class="row"><span>CGPA</span><span>8.22</span></div>
+                    </div>
+                    <div class="about-card">
+                        <h4>Leadership</h4>
+                        <ul class="about-leadership">
+                            <li><strong>Head (Chairman)</strong> — Hackathon Club: organized technical hackathons and
+                                industry events.</li>
+                            <li><strong>Project Lead</strong> — EduQuity, AI Resume Enhancer, HeartSense: design
+                                through deployment.</li>
+                            <li><strong>Campus Collaborator</strong> — Ottonomy IO: user research & market surveys for
+                                autonomous robotics.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects">
-            <h2 class="section-title reveal">Featured <span>Projects</span></h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge"><i class="fa-solid fa-trophy"></i> Winner – Best Social Impact Project
-                    </div>
-                    <div class="project-content">
-                        <h3>EduQuity</h3>
-                        <p class="project-desc">Built a full-stack educational platform with role-based dashboards.
-                            Integrated Gemini AI tutoring assistant. Developed REST APIs for internships, scholarships,
-                            analytics, and task management. Reduced administrative work by 40%.</p>
-                        <div class="tech-stack">
-                            <span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Tailwind
-                                CSS</span><span>Gemini AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/ai-education-equity-system"
-                                class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge badge-alt"><i class="fa-brands fa-android"></i> APK Deployed</div>
-                    <div class="project-content">
-                        <h3>OncoDetect AI</h3>
-                        <p class="project-desc">Developed an Android application for early cancer risk prediction.
-                            Integrated trained prediction models. Generated and deployed a functional APK.</p>
-                        <div class="tech-stack">
-                            <span>Dart</span><span>Android Studio</span><span>Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/AI-Powered-Cancer-Prediction-Mobile-App-Early-Detection-System-"
-                                class="btn btn-outline" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="project-card card reveal">
-                    <div class="project-badge badge-alt2"><i class="fa-solid fa-star"></i> National Hackathon Finalist
-                    </div>
-                    <div class="project-content">
-                        <h3>MailGuard AI</h3>
-                        <p class="project-desc">Developed an AI-powered phishing and spam email detection system.
-                            Implemented TF-IDF vectorization and explainable predictions. Built a Flask interface for
-                            real-time analysis.</p>
-                        <div class="tech-stack">
-                            <span>Python</span><span>Flask</span><span>Scikit-learn</span><span>Machine
-                                Learning</span><span>NLP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/alexusesgithub/email-spam-analyser" class="btn btn-outline"
-                                target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
+        <!-- Currently Exploring -->
+        <section id="exploring" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Currently Exploring</p>
+                <h2 class="section-title">Where I'm headed next</h2>
+            </div>
+            <div class="exploring-box reveal">
+                <p class="exploring-note">I'm actively deepening skills beyond my current project work — this is
+                    trajectory, not a claim of professional experience yet.</p>
+                <div class="chip-row">
+                    <span class="chip">Agentic AI</span>
+                    <span class="chip">Tool / function calling</span>
+                    <span class="chip">LLM evaluation</span>
+                    <span class="chip">AI observability</span>
+                    <span class="chip">Vector databases</span>
+                    <span class="chip">Cloud deployment (GCP)</span>
+                    <span class="chip">Production AI engineering</span>
                 </div>
             </div>
         </section>
 
-        <div class="two-col-section">
-            <!-- Certifications Section -->
-            <section id="certifications" class="certifications half-width">
-                <h2 class="section-title reveal">Certifications</h2>
-                <div class="cert-list reveal">
-                    <div class="cert-card card">
-                        <i class="fa-solid fa-certificate cert-icon"></i>
-                        <div class="cert-info">
-                            <h3>Introduction to Internet of Things</h3>
-                            <p>NPTEL</p>
-                            <span class="badge badge-silver">Elite + Silver</span>
-                        </div>
-                    </div>
-                    <div class="cert-card card">
-                        <i class="fa-solid fa-cloud cert-icon"></i>
-                        <div class="cert-info">
-                            <h3>Cloud Computing</h3>
-                            <p>NPTEL</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Achievements Section -->
-            <section id="achievements" class="achievements half-width">
-                <h2 class="section-title reveal">Achievements</h2>
-                <div class="achieve-list reveal">
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-trophy achieve-icon win"></i>
-                        <div>
-                            <p><strong>Winner</strong></p>
-                            <p class="text-sm">Hackathon, United Institute of Technology</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-medal achieve-icon win"></i>
-                        <div>
-                            <p><strong>Winner</strong></p>
-                            <p class="text-sm">Prompt Scapes, KPR Institute of Technology</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-award achieve-icon runner"></i>
-                        <div>
-                            <p><strong>Runner-Up</strong></p>
-                            <p class="text-sm">Project Presentation</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-star achieve-icon finalist"></i>
-                        <div>
-                            <p><strong>Top 10 Finalist (2×)</strong></p>
-                            <p class="text-sm">among 250+ teams</p>
-                        </div>
-                    </div>
-                    <div class="achieve-item card">
-                        <i class="fa-solid fa-star achieve-icon finalist"></i>
-                        <div>
-                            <p><strong>Top 50 Finalist</strong></p>
-                            <p class="text-sm">among 1500+ participants in National-Level Hackathon</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Leadership Section -->
-        <section id="leadership" class="leadership">
-            <h2 class="section-title reveal">Leadership <span>&</span> Engagement</h2>
-            <div class="leadership-grid">
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-users lead-icon"></i>
-                    <h3>Head (Chairman)</h3>
-                    <p>Hackathon Club</p>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Organized 5+ hackathons & technical events.</li>
-                        <li>Led student teams and coordinated industry sessions.</li>
-                        <li>Promoted innovation through campus-wide coding initiatives.</li>
-                    </ul>
-                </div>
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-list-check lead-icon"></i>
-                    <h3>Project Lead</h3>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Led 3 AI-powered full-stack projects.</li>
-                        <li>Managed planning, development & deployment.</li>
-                        <li>Coordinated frontend, backend & AI integration.</li>
-                    </ul>
-                </div>
-                <div class="lead-card card reveal">
-                    <i class="fa-solid fa-robot lead-icon"></i>
-                    <h3>Campus Collaboration</h3>
-                    <h4>Ottonomy IO (Robotics MNC)</h4>
-                    <ul
-                        style="margin-top: 1rem; font-size: 0.95rem; padding-left: 1.5rem; text-align: left; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li>Collaborated on robotics user research.</li>
-                        <li>Conducted market surveys and analyzed insights.</li>
-                        <li>Contributed to product research initiatives.</li>
-                    </ul>
-                </div>
+        <!-- Contact -->
+        <section id="contact" class="wrap">
+            <div class="section-head reveal">
+                <p class="eyebrow">Contact</p>
+                <h2 class="section-title">Let's talk</h2>
+                <p class="section-sub">Open to AI/ML Engineer, GenAI Engineer, and Python backend roles. The fastest
+                    way to reach me is email.</p>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
-            <div class="contact-container" style="display: block; max-width: 600px; margin: 0 auto;">
-                <div class="contact-info reveal reveal-left">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out to me for any opportunities or collaborations. I am always open to
-                        discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <h4>Phone</h4>
-                            <span><a href="tel:+917845206876" style="color: inherit; text-decoration: none;">+91
-                                    7845206876</a></span>
-                        </div>
+            <div class="contact-grid reveal">
+                <a href="mailto:alex.data.dev44@gmail.com" class="contact-card">
+                    <span class="ci-icon"><i class="fa-solid fa-envelope"></i></span>
+                    <div>
+                        <h4>Email</h4>
+                        <span>alex.data.dev44@gmail.com</span>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <h4>Email</h4>
-                            <span><a href="mailto:alex.data.dev44@gmail.com"
-                                    style="color: inherit; text-decoration: none;">alex.data.dev44@gmail.com</a></span>
-                        </div>
+                </a>
+                <a href="tel:+917845206876" class="contact-card">
+                    <span class="ci-icon"><i class="fa-solid fa-phone"></i></span>
+                    <div>
+                        <h4>Phone</h4>
+                        <span>+91 78452 06876</span>
                     </div>
-                    <div class="contact-socials">
-                        <a href="https://github.com/alexusesgithub" class="social-btn" target="_blank"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="social-btn" target="_blank"><i
-                                class="fa-brands fa-linkedin"></i></a>
+                </a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" class="contact-card" target="_blank"
+                    rel="noopener">
+                    <span class="ci-icon"><i class="fa-brands fa-linkedin"></i></span>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <span>alex-a-968b7a296</span>
                     </div>
-                </div>
-
+                </a>
+                <a href="https://github.com/alexusesgithub" class="contact-card" target="_blank" rel="noopener">
+                    <span class="ci-icon"><i class="fa-brands fa-github"></i></span>
+                    <div>
+                        <h4>GitHub</h4>
+                        <span>alexusesgithub</span>
+                    </div>
+                </a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <h3>Alex A</h3>
-            <p class="footer-subtitle">Full Stack Developer</p>
-            <p class="footer-quote">"Building scalable software and AI-powered solutions."</p>
-            <div class="footer-socials">
-                <a href="https://github.com/alexusesgithub" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:alex.data.dev44@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        <div class="wrap">
+            <div class="footer-left">
+                <span>&copy; 2026 Alex A.</span>
+                <span>Built with HTML, CSS & JS — no framework overhead.</span>
             </div>
-            <p class="copyright">&copy; 2026 Alex A. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/alexusesgithub" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:alex.data.dev44@gmail.com" aria-label="Email"><i
+                        class="fa-solid fa-envelope"></i></a>
+            </div>
         </div>
     </footer>
 

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decisio — Alex A</title>
+    <meta name="description"
+        content="Case study: Decisio, a RAG-powered enterprise decision-intelligence platform that grounds LLM recommendations in real business data. Top 10 finalist among 1,500+ participants.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="dot"></span> Alex A</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#work">Work</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://github.com/alexusesgithub" class="icon-link" target="_blank" rel="noopener"
+                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="../assets/Alex_A_Resume.pdf" class="btn btn-outline btn-sm nav-btn" target="_blank"><i
+                        class="fa-solid fa-arrow-down"></i> Resume</a>
+                <button class="menu-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+        <ul class="mobile-links">
+            <li><a href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main">
+        <header class="cs-hero wrap">
+            <a href="../index.html#work" class="cs-back reveal"><i class="fa-solid fa-arrow-left"></i> Back to work</a>
+            <span class="badge badge-violet reveal"><i class="fa-solid fa-trophy"></i> Top 10 finalist / 1,500+
+                participants</span>
+            <h1 class="reveal" style="margin-top:1rem;">Decisio</h1>
+            <p class="cs-tagline reveal">An enterprise decision-intelligence platform that uses retrieval-augmented
+                generation to turn scattered business data into grounded, specific strategic recommendations.</p>
+            <div class="cs-meta-grid reveal">
+                <div class="cs-meta-item">
+                    <h5>Role</h5>
+                    <p>Team member / builder</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Context</h5>
+                    <p>National hackathon</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Result</h5>
+                    <p>Top 10 / 1,500+</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Status</h5>
+                    <p>Hackathon prototype</p>
+                </div>
+                <div class="cs-meta-item">
+                    <h5>Stack</h5>
+                    <p>Python, RAG, Flask, FastAPI</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="wrap cs-body">
+            <nav class="cs-toc reveal" aria-label="Case study sections">
+                <a href="#overview">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#architecture">RAG Architecture</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#demo">Demo</a>
+                <a href="#challenges">Key Challenges</a>
+                <a href="#outcome">Outcome</a>
+                <a href="#stack">Tech Stack</a>
+            </nav>
+
+            <div class="cs-content">
+                <section id="overview" class="cs-section reveal">
+                    <h2>Overview</h2>
+                    <p>Decisio is an enterprise decision-intelligence platform: it takes a business's own documents
+                        and data, retrieves what's actually relevant to a given question, and uses an LLM to turn
+                        that into a specific, grounded recommendation — business diagnosis, competitor analysis, or
+                        contextual decision support, depending on the query.</p>
+                </section>
+
+                <section id="problem" class="cs-section reveal">
+                    <h2>The Problem</h2>
+                    <p>Generic LLM advice is easy to get and rarely useful — it doesn't know a business's actual
+                        numbers, competitors, or documents. Businesses have the data to answer their own strategic
+                        questions, but connecting "here's our data" to "here's what to do about it" is a manual,
+                        analyst-driven process. Decisio's premise: retrieve the relevant context first, then let the
+                        LLM reason over it — instead of asking the model to reason from nothing.</p>
+                </section>
+
+                <section id="architecture" class="cs-section reveal">
+                    <h2>RAG Architecture</h2>
+                    <div class="pipeline">
+                        <div class="pipeline-node"><div class="node-box">Business documents & data</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Retrieval</div><div class="node-sub">document search</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Relevant context</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">LLM reasoning</div></div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-node"><div class="node-box">Grounded recommendation</div></div>
+                    </div>
+                    <p>The system is built as modular pipelines rather than one monolithic prompt — retrieval,
+                        context assembly, and generation are separable stages, which made it possible to tune each
+                        one (and swap data sources) independently during the hackathon.</p>
+                </section>
+
+                <section id="capabilities" class="cs-section reveal">
+                    <h2>Capabilities</h2>
+                    <ul>
+                        <li><strong>Business diagnosis</strong> — surfaces issues and patterns from a business's own
+                            operational data.</li>
+                        <li><strong>Competitor analysis</strong> — retrieves and compares competitor-related
+                            documents and context.</li>
+                        <li><strong>Contextual decision support</strong> — answers grounded in retrieved documents,
+                            not general model knowledge.</li>
+                        <li><strong>Interactive dashboards</strong> — presents retrieval and recommendation output in
+                            a usable interface, not raw text.</li>
+                    </ul>
+                </section>
+
+                <section id="demo" class="cs-section reveal">
+                    <h2>Demo</h2>
+                    <p>A simplified walkthrough of the retrieval → context → recommendation flow for an example
+                        decision query.</p>
+                    <div class="demo-panel" data-demo="decisio">
+                        <div class="demo-label">
+                            <span class="badge badge-neutral"><i class="fa-solid fa-flask"></i> Illustrative example
+                                query</span>
+                        </div>
+                        <div class="demo-steps">
+                            <button class="demo-step-btn" data-step="0">1. Query</button>
+                            <button class="demo-step-btn" data-step="1">2. Retrieval</button>
+                            <button class="demo-step-btn" data-step="2">3. Context</button>
+                            <button class="demo-step-btn" data-step="3">4. Recommendation</button>
+                        </div>
+                        <div class="demo-output"></div>
+                    </div>
+                </section>
+
+                <section id="challenges" class="cs-section reveal">
+                    <h2>Key Challenges</h2>
+                    <ul>
+                        <li><strong>Grounding without over-constraining</strong> — retrieval needed to be tight
+                            enough that the LLM couldn't drift into generic advice, but wide enough to actually
+                            answer the question.</li>
+                        <li><strong>Building it under hackathon time pressure</strong> — modular pipelines were the
+                            only way to parallelize retrieval, backend, and dashboard work across the team in the time
+                            available.</li>
+                        <li><strong>Making recommendations feel specific</strong> — the bar for "useful" output was
+                            higher than a chatbot: judges could immediately tell generic advice apart from
+                            document-grounded advice.</li>
+                    </ul>
+                </section>
+
+                <section id="outcome" class="cs-section reveal">
+                    <h2>Outcome</h2>
+                    <p>Decisio placed in the <strong>top 10 among 1,500+ participants</strong>, validating the core
+                        bet that retrieval-grounded reasoning beats a raw LLM prompt for real business decision
+                        support.</p>
+                </section>
+
+                <section id="stack" class="cs-section reveal">
+                    <h2>Tech Stack</h2>
+                    <div class="cs-stack-grid">
+                        <span class="chip">Python</span><span class="chip">LLMs</span><span class="chip">RAG</span>
+                        <span class="chip">Flask</span><span class="chip">FastAPI</span><span class="chip">Prompt
+                            Engineering</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="wrap cs-nav-footer reveal">
+            <a href="ansible-failure-whisperer.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i>
+                Ansible Failure Whisperer</a>
+            <a href="../index.html#work" class="btn btn-ghost">All work <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-left"><span>&copy; 2026 Alex A.</span></div>
+            <div class="footer-socials">
+                <a href="https://github.com/alexusesgithub" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alex-a-968b7a296/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:alex.data.dev44@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        window.DEMO_CONTENT = window.DEMO_CONTENT || {};
+        window.DEMO_CONTENT.decisio = [
+            '<span class="k">query</span>: <span class="v">"Why did Q3 regional sales underperform, and what should we do?"</span>',
+            '<span class="g">Retrieving relevant documents...</span>\n- Q3 regional sales report.pdf\n- competitor pricing update — Sept.docx\n- regional marketing spend log.csv\n<span class="k">match_count</span>: <span class="v">3 / 214 documents</span>',
+            '<span class="g">Assembled context:</span>\n"Region East missed target by 14%. Competitor X\ndropped prices 8% in August. Marketing spend in\nRegion East fell 20% quarter-over-quarter."',
+            '<span class="g">Recommendation:</span>\nRegion East\'s underperformance tracks with reduced\nmarketing spend, not just competitor pricing pressure.\nRestoring spend to prior levels before matching\nCompetitor X on price is the lower-risk first move.'
+        ];
+    </script>
+    <script src="case-study.js"></script>
+</body>
+
+</html>
