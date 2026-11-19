@@ -844,3 +844,28 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
   .cs-body { grid-template-columns: 1fr; gap: 2rem; }
   .cs-toc { position: static; flex-direction: row; flex-wrap: wrap; }
 }
+
+/* ===== Project lead line + "At a glance" box ===== */
+.proj-awards { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+.lead-line { font-weight: 700; color: var(--ink); font-size: 1.05rem; line-height: 1.45; margin-bottom: 1.1rem; max-width: 62ch; }
+.cs-hero .lead-line { font-size: 1.2rem; max-width: 60ch; }
+.mini-card .lead-line { font-size: 0.95rem; margin-bottom: 0.9rem; }
+
+.glance { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 1.1rem 1.25rem; margin-bottom: 1.3rem; max-width: 66ch; }
+.glance-title { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 0.7rem; }
+.glance dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.35rem 1rem; font-size: 0.88rem; margin-bottom: 0.85rem; }
+.glance dt { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-faint); padding-top: 0.12rem; }
+.glance dd { color: var(--ink); font-weight: 600; min-width: 0; }
+.glance ul { display: flex; flex-direction: column; gap: 0.4rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
+.glance ul li { position: relative; padding-left: 1.1rem; color: var(--ink-soft); font-size: 0.88rem; }
+.glance ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+.cs-hero .glance { max-width: 760px; margin-top: 0.5rem; }
+.mini-card .glance { padding: 0.9rem 1rem; background: var(--bg); margin-bottom: 0.9rem; }
+.mini-card .glance dl, .mini-card .glance ul li { font-size: 0.82rem; }
+
+.footnote { font-size: 0.78rem; color: var(--ink-faint); font-family: var(--font-mono); margin-top: 0.8rem; }
+
+@media (max-width: 520px) {
+  .glance dl { grid-template-columns: 1fr; gap: 0.1rem; }
+  .glance dd { margin-bottom: 0.45rem; }
+}

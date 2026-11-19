@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansible Failure Whisperer — Alex A</title>
     <meta name="description"
-        content="Case study: an LLM-powered diagnostics tool that turns Ansible/AWX automation failures into plain-English root-cause explanations using local Qwen 3.5B inference.">
+        content="Case study: an LLM diagnostics tool that turns Ansible/AWX automation failures into plain-English root-cause explanations using local Qwen 3.5B inference.">
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,32 +53,27 @@
     <main id="main">
         <header class="cs-hero wrap">
             <a href="../index.html#work" class="cs-back reveal"><i class="fa-solid fa-arrow-left"></i> Back to work</a>
-            <span class="badge badge-accent reveal">Internal tool · Sennovate</span>
+            <div class="proj-awards reveal">
+                <span class="badge badge-accent"><i class="fa-solid fa-lock"></i> Local LLM · data stays on-prem</span>
+                <span class="badge badge-neutral">Sennovate · 2026</span>
+            </div>
             <h1 class="reveal" style="margin-top:1rem;">Ansible Failure Whisperer</h1>
-            <p class="cs-tagline reveal">LLM-powered failure diagnostics for Ansible/AWX automation — turning
-                cryptic failure logs into a plain-English root cause, using a model that runs entirely on local
-                infrastructure.</p>
-            <div class="cs-meta-grid reveal">
-                <div class="cs-meta-item">
-                    <h5>Role</h5>
-                    <p>Sole builder</p>
-                </div>
-                <div class="cs-meta-item">
-                    <h5>Company</h5>
-                    <p>Sennovate</p>
-                </div>
-                <div class="cs-meta-item">
-                    <h5>Model</h5>
-                    <p>Qwen 3.5B (local)</p>
-                </div>
-                <div class="cs-meta-item">
-                    <h5>Status</h5>
-                    <p>Internal tool, in use</p>
-                </div>
-                <div class="cs-meta-item">
-                    <h5>Stack</h5>
-                    <p>Python, Ansible, AWX</p>
-                </div>
+            <p class="cs-tagline reveal">LLM diagnostics for automation failures</p>
+            <p class="lead-line reveal">Built an LLM diagnostics tool that turns failed Ansible/AWX runs into
+                plain-English root causes. It runs entirely on local inference, so no log data ever leaves the
+                environment.</p>
+            <div class="glance reveal">
+                <p class="glance-title">At a glance</p>
+                <dl>
+                    <dt>Role</dt><dd>Builder</dd>
+                    <dt>Stack</dt><dd>Python, Qwen 3.5B (local inference), Ansible, AWX</dd>
+                </dl>
+                <ul>
+                    <li>Local LLM inference: no external API calls and no data leaving the environment</li>
+                    <li>Built for enterprise and security-sensitive infrastructure where cloud LLMs are off the table</li>
+                    <li>Pulls the failed task and its log context out of noisy AWX output before prompting</li>
+                    <li>Prompts keep explanations grounded in what the logs actually show</li>
+                </ul>
             </div>
         </header>
 
@@ -97,18 +92,18 @@
             <div class="cs-content">
                 <section id="overview" class="cs-section reveal">
                     <h2>Overview</h2>
-                    <p>Ansible and AWX are core to how Sennovate automates infrastructure and security operations,
-                        but when a job fails, the output is a wall of module tracebacks and host-level errors that
-                        takes real effort to parse — especially for anyone who isn't the person who wrote the
-                        playbook. I built a tool that reads that raw failure output and returns a short, accurate,
-                        plain-English explanation of what actually went wrong.</p>
+                    <p>When an Ansible/AWX job fails, the output is a wall of module tracebacks and host-level
+                        errors, and it's hard to read if you didn't write the playbook. I built a tool that reads that
+                        raw failure output and returns a short, plain-English explanation of what went wrong.</p>
+                    <p><strong>Why local inference matters:</strong> automation logs touch infrastructure, access
+                        and security systems. Many enterprises can't send that data to a cloud LLM API. Running Qwen
+                        3.5B locally means the whole diagnosis happens inside the environment.</p>
                 </section>
 
                 <section id="problem" class="cs-section reveal">
                     <h2>The Problem</h2>
-                    <p>Automation failures are frequent enough to be a real time cost, and the people triaging them
-                        aren't always the ones who wrote the playbook. The failure signal is there in the logs, but
-                        it's buried:</p>
+                    <p>The people triaging a failure aren't always the people who wrote the playbook. The cause is
+                        in the logs, but it's buried:</p>
                     <ul>
                         <li>AWX job output mixes module internals, retries, and the actual failure reason together.</li>
                         <li>Diagnosing a failure often meant re-reading logs line by line to find the one that
@@ -177,9 +172,9 @@
 
                 <section id="outcome" class="cs-section reveal">
                     <h2>Outcome</h2>
-                    <p>The tool cuts down the time engineers spend manually reading AWX failure logs, and keeps that
-                        diagnostic step entirely on local infrastructure — no automation or security-adjacent data
-                        goes to an external API.</p>
+                    <p>Engineers get a plain-English root cause instead of reading raw AWX logs line by line, and the
+                        diagnosis stays entirely on local infrastructure. No automation or security data goes to an
+                        external API.</p>
                 </section>
 
                 <section id="stack" class="cs-section reveal">
@@ -194,8 +189,8 @@
         </div>
 
         <div class="wrap cs-nav-footer reveal">
-            <a href="access-governance.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Access
-                Governance Platform</a>
+            <a href="access-governance.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i>
+                ReviewPoint</a>
             <a href="decisio.html" class="btn btn-outline">Decisio <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </main>
